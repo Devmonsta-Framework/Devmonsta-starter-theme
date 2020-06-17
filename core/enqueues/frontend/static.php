@@ -17,7 +17,7 @@ if ( !is_admin() ) {
 	// theme css
 	wp_enqueue_style( 'sassico-blog',  SASSICO_CSS . '/blog.css', null,  SASSICO_VERSION );
 	wp_enqueue_style( 'sassico-gutenberg-custom',  SASSICO_CSS . '/gutenberg-custom.css', null,  SASSICO_VERSION );
-	wp_enqueue_style( 'sassicon-woocommerce',  SASSICO_CSS . '/sassicon-woocommerce.css', null,  SASSICO_VERSION );
+	wp_enqueue_style( 'sassicon-woocommerce',  SASSICO_CSS . '/xs-woocommerce.css', null,  SASSICO_VERSION );
 	wp_enqueue_style( 'sassico-master',  SASSICO_CSS . '/master.css', null,  SASSICO_VERSION );
 }
 
