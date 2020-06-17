@@ -1,0 +1,10 @@
+
+.DS_Store
+
+/node_modules
+package.json
+package-lock.json
+gulpfile.js
+assets/js/scripts/elementor.js
+assets/js/scripts/script.js
+prepros-6.config
