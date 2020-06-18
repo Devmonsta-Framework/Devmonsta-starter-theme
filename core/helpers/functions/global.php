@@ -6,7 +6,7 @@
 // simply echo the variable
 // ----------------------------------------------------------------------------------------
 function sassico_return( $s ) {
-   
+
 	return wp_kses_post($s);
 }
 
@@ -16,11 +16,11 @@ function sassico_style_unit( $data ) {
    $footer_padding_top_unit = substr($data, -2);
    $footer_padding_top_unit_percent = substr($data, -1);
    if(in_array($footer_padding_top_unit,$css_units) || in_array($footer_padding_top_unit_percent,$css_units)){
-    return $data; 
+    return $data;
    }else{
      return (int)$data."px";
    }
-   
+
    return $data;
 }
 
@@ -29,9 +29,6 @@ function sassico_style_unit( $data ) {
 function sassico_option( $key, $default_value = '', $method = 'customizer' ) {
 	if ( defined( 'FW' ) ) {
 		switch ( $method ) {
-			case 'theme-settings':
-				$value = fw_get_db_settings_option( $key );
-				break;
 			case 'customizer':
 				$value = fw_get_db_customizer_option( $key );
 				break;
@@ -348,12 +345,12 @@ if ( !function_exists( 'sassico_advanced_font_styles' ) ) :
 
 		$font_styles .= isset( $style[ 'family' ] ) ? 'font-family:"' . $style[ 'family' ] . '";' : '';
 		$font_styles .= isset($style[ 'style' ] ) && $style[ 'style' ] ? 'font-style:' . esc_attr( $style[ 'style' ] ) . ';' : '';
-		
+
 		$font_styles .= isset( $style[ 'color' ] ) && !empty( $style[ 'color' ] ) ? 'color:' . esc_attr( $style[ 'color' ] ) . ';' : '';
 		$font_styles .= isset( $style[ 'line-height' ] ) && !empty( $style[ 'line-height' ] ) ? 'line-height:' . esc_attr( $style[ 'line-height' ] ) . 'px;' : '';
 		$font_styles .= isset( $style[ 'letter-spacing' ] ) && !empty( $style[ 'letter-spacing' ] ) ? 'letter-spacing:' . esc_attr( $style[ 'letter-spacing' ] ) . 'px;' : '';
 		$font_styles .= isset( $style[ 'size' ] ) && !empty( $style[ 'size' ] ) ? 'font-size:' . esc_attr( $style[ 'size' ] ) . 'px;' : '';
-		
+
 		$font_styles .= !empty( $font_weight ) ? $font_weight : '';
 
 		return !empty( $font_styles ) ? $font_styles : '';

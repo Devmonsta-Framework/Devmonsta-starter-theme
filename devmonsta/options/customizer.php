@@ -11,9 +11,136 @@ class Customizer extends \Devmonsta\Libs\Customizer {
             'id'             => 'devmonsta_panel',
             'priority'       => 0,
             'theme_supports' => '',
-            'title'          => __( 'Devmonsta panel', 'devmonsta' ),
-            'description'    => __( 'Devmonsta options panel', 'devmonsta' ),
+            'title'          => __( 'Theme settings', 'devmonsta' ),
+            'description'    => __( 'Theme options panel', 'devmonsta' ),
         ] );
+
+
+        /**
+         * Header settings here
+        */
+        $this->add_section( [
+            'id'       => 'xs_header_settings_section',
+            'title'    => __( 'Header Control', 'devmonsta' ),
+            'panel'    => 'devmonsta_panel',
+            'priority' => 10,
+        ] );
+
+        $this->add_control( [
+            'id'      => 'header_contact_mail',
+            'type'    => 'text',
+            'default' => esc_html__('contact@domain.com','sassico'),
+            'label'   => __( 'Contact mail', 'devmonsta' ),
+            'section' => 'xs_header_settings_section',
+        ] );
+
+        $this->add_control([
+            'id'      => 'header_contact_address',
+            'type'    => 'text',
+            'default' => esc_html__('105 Roosevelt Street CA','sassico'),
+            'label'   => __( 'Contact address title', 'devmonsta' ),
+            'section' => 'xs_header_settings_section',
+        ]);
+
+        $this->add_control([
+            'id'      => 'header_Contact_number',
+            'type'	  => 'text',
+            'label'	  => esc_html__( 'Contact number', 'sassico' ),
+            'default' => esc_html__('+1 212-554-1515','sassico'),
+            'section' => 'xs_header_settings_section',
+        ]);
+
+        $this->add_control( [
+            'id'      => 'header_nav_search_section',
+            'type'    => 'switcher',
+            'default' => 'right-choice',
+            'label'   => __( 'Search button show', '{domain}' ),
+            'desc'    => __( 'Do you want to show search button in header ?', '{domain}' ),
+            'section' => 'xs_header_settings_section',
+            'left-choice'  => [
+                'no' => __( 'No', '{domain}' ),
+            ],
+            'right-choice' => [
+                'yes' => __( 'Yes', '{domain}' ),
+            ],
+        ] );
+
+        $this->add_control( [
+            'id'      => 'header_nav_sticky',
+            'type'    => 'switcher',
+            'default' => 'right-choice',
+            'label'   => __( 'Sticky header', '{domain}' ),
+            'desc'    => __( 'Do you want to enable sticky nav?', '{domain}' ),
+            'section' => 'xs_header_settings_section',
+            'left-choice'  => [
+                'no' => __( 'No', '{domain}' ),
+            ],
+            'right-choice' => [
+                'yes' => __( 'Yes', '{domain}' ),
+            ],
+        ] );
+
+        $this->add_control( [
+            'id'      => 'header_top_info_show',
+            'type'    => 'switcher',
+            'default' => 'right-choice',
+            'label'   => __( 'Show Topbar', '{domain}' ),
+            'desc'    => __( 'Do you want to enable show topbar?', '{domain}' ),
+            'section' => 'xs_header_settings_section',
+            'left-choice'  => [
+                'no' => __( 'No', '{domain}' ),
+            ],
+            'right-choice' => [
+                'yes' => __( 'Yes', '{domain}' ),
+            ],
+        ] );
+
+        $this->add_control([
+            'id'      => 'header_nav_search_section',
+            'type'    => 'switcher',
+            'default' => 'right-choice',
+            'label'   => __( 'Search button show', '{domain}' ),
+            'desc'    => __( 'Do you want to show search button in header ?', '{domain}' ),
+            'section' => 'xs_header_settings_section',
+            'left-choice'  => [
+                'no' => __( 'No', '{domain}' ),
+            ],
+            'right-choice' => [
+                'yes' => __( 'Yes', '{domain}' ),
+            ],
+        ]);
+
+        $this->add_control([
+            'id'      => 'header_quota_button',
+            'type'    => 'switcher',
+            'default' => 'right-choice',
+            'label'   => __( 'Show CTA button', '{domain}' ),
+            'section' => 'xs_header_settings_section',
+            'left-choice'  => [
+                'no' => __( 'No', '{domain}' ),
+            ],
+            'right-choice' => [
+                'yes' => __( 'Yes', '{domain}' ),
+            ],
+        ]);
+
+        $this->add_control([
+            'id'      => 'header_quota_text',
+            'type'	  => 'text',
+            'label'	  => esc_html__( 'Quote text', 'sassico' ),
+            'desc'	  => esc_html__( 'Navigation quote text.', 'sassico' ),
+            'default' => esc_html__('Get a quote','sassico'),
+            'section' => 'xs_header_settings_section',
+        ]);
+
+        $this->add_control([
+            'id'      => 'header_quota_url',
+            'type'	  => 'url',
+            'label'	  => esc_html__( 'Quote link', 'sassico' ),
+            'desc'	  => esc_html__( 'Navigation quote link.', 'sassico' ),
+            'default' => esc_url( '#' ),
+            'section' => 'xs_header_settings_section',
+        ]);
 
         /**
          * Sections will go inside panel
@@ -54,7 +181,7 @@ class Customizer extends \Devmonsta\Libs\Customizer {
          *      Customizer default control start
          * ===========================================
          */
-        
+
         // /**
         //  * Control for text input
         //  */
@@ -536,7 +663,7 @@ class Customizer extends \Devmonsta\Libs\Customizer {
             'label'      => __( 'Typhography', '{domain}' ),
             'desc'       => __( 'Description', '{domain}' ),
         ] );
-        
+
         /**
          * ===========================================
          *      Custom control end
