@@ -1,46 +1,34 @@
 <?php
+
 use Devmonsta\Libs\Posts;
 
-class Page extends Posts{
+class Page extends Posts
+{
 
-    public function register_controls(){
+    public function register_controls()
+    {
         $this->add_box([
             'id' => 'page_box_1',
             'post_type' => 'page',
-            'title' => 'First Box'
+            'title' => esc_html__('Page Settings', 'sassico'),
         ]);
-
-        $this->add_box([
-            'id' => 'page_box_2',
-            'post_type' => 'page',
-            'title' => 'Second Box'
-        ]);
-
         /**
          * control for text input
          */
-        $this->add_control( [
+        $this->add_control([
             'box_id' => 'page_box_1',
             'type'   => 'text',
-            'name'   => 'f_name_1',
-            'value'  => 'default text value',
-            'desc'   => 'use this area to input text',
-            'label'  => __( 'Text Input Two', '{domain}' ),
-        ] );
+            'name'   => 'header_title',
+            'desc'   => esc_html__('Add your Page hero title', 'sassico'),
+            'label'  => esc_html__('Banner Title', 'sassico'),
+        ]);
 
-        /**
-         * control for url input
-         */
-        $this->add_control( [
-            'box_id' => 'page_box_2',
-            'name'   => 'user_url_one',
-            'type'   => 'url',
-            'value'  => 'http://www.xs.com',
-            'label'  => __( 'Enter valid URL One', '{domain}' ),
-            'desc'   => __( 'Url Description', '{domain}' ),
-        ] );
-
-        // dm_print(dm_meta('18', 'f_name_1'));
+        $this->add_control([
+            'box_id' => 'page_box_1',
+            'type'   => 'upload',
+            'name'   => 'header_image',
+            'desc'   => esc_html__('Upload a page header image', 'sassico'),
+            'label'  => esc_html__('Banner image', 'sassico'),
+        ]);
     }
-
 }

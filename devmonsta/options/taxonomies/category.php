@@ -9,12 +9,15 @@ class Category extends Taxonomies
     {
 
         $this->add_control([
-            'type' => 'text',
-            'placeholder' => 'Category First name',
-            'label' => 'First name',
-            'name' => 'c_f_name'
+            'name'  => 'icon_picker',
+            'type'  => 'icon',
+            'value'  => [
+                'icon' => 'fas fa-at',
+                'type' => 'dm-font-awesome',
+            ],
+            'label' => __('Select Icon', '{domain}'),
+            'desc'  => __('Select icon description', '{domain}'),
+            'attr'  => ['class' => 'custom-class', 'data-foo' => 'bar'],
         ]);
-
     }
-
 }
