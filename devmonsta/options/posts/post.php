@@ -17,13 +17,7 @@ class Post extends Posts
         /**
          * control for text input
          */
-        $this->add_control([
-            'box_id' => 'post_box_1',
-            'type'   => 'url',
-            'name'   => 'featured_audio',
-            'label'  => esc_html__('Audio URL', 'sassico'),
-            'desc'   => esc_html__('Paste a soundcloud link here.', 'sassico'),
-        ]);
+  
         $this->add_control([
             'box_id' => 'post_box_1',
             'type'   => 'url',
@@ -34,14 +28,14 @@ class Post extends Posts
         /**
          * control for upload input
          */
-        $this->add_control([
-            'box_id'   => 'post_box_1',
-            'name'     => 'featured_gallery',
-            'type'     => 'upload',
-            'label'     => esc_html__('Featured gallery', 'sassico'),
-            'desc'     => esc_html__('Select featured gallery images for this post.', 'sassico'),
-            'multiple' => true,
-        ]);
+        // $this->add_control([
+        //     'box_id'   => 'post_box_1',
+        //     'name'     => 'featured_gallery',
+        //     'type'     => 'upload',
+        //     'label'     => esc_html__('Featured gallery', 'sassico'),
+        //     'desc'     => esc_html__('Select featured gallery images for this post.', 'sassico'),
+        //     'multiple' => true,
+        // ]);
         // $this->add_control([
         //     'box_id'     => 'post_box_1',
         //     'type'       => 'text',
