@@ -4,7 +4,6 @@
    $default_class = '';
    if ( defined( 'FW' ) ) {
       $header_top_info_show     = sassico_option('header_top_info_show');
-
       $header_contact_mail          = sassico_option('header_contact_mail');
       $header_contact_address       = sassico_option('header_contact_address');
       $header_Contact_number       = sassico_option('header_Contact_number');
@@ -12,8 +11,8 @@
       $header_nav_search_section    = sassico_option('header_nav_search_section');
       $header_quota_button          = sassico_option('header_quota_button');
       if($header_quota_button['style'] == 'yes'){
-      $header_quota_text            =  $header_quota_button ['yes']['header_quota_text'];
-      $header_quota_url             = $header_quota_button ['yes']['header_quota_url'];
+         $header_quota_text            =  $header_quota_button ['yes']['header_quota_text'];
+         $header_quota_url             = $header_quota_button ['yes']['header_quota_url'];
       }
       //Page settings
       $header_nav_sticky            = sassico_option('header_nav_sticky');

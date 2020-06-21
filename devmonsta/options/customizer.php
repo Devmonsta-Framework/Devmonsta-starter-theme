@@ -43,6 +43,15 @@ class Customizer extends \Devmonsta\Libs\Customizer {
         ]);
 
         $this->add_control([
+            'id'      => 'header_contact_address_url',
+            'type'	  => 'url',
+            'label'	  => esc_html__( 'Address link', 'sassico' ),
+            'desc'	  => esc_html__( 'Navigation address link.', 'sassico' ),
+            'default' => esc_url( '#' ),
+            'section' => 'xs_header_settings_section',
+        ]);
+
+        $this->add_control([
             'id'      => 'header_Contact_number',
             'type'	  => 'text',
             'label'	  => esc_html__( 'Contact number', 'sassico' ),
