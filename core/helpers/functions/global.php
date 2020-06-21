@@ -27,10 +27,10 @@ function sassico_style_unit( $data ) {
 // return the specific value from theme options/ customizer/ etc
 // ----------------------------------------------------------------------------------------
 function sassico_option( $key, $default_value = '', $method = 'customizer' ) {
-	if ( defined( 'FW' ) ) {
+	if ( defined( 'DM' ) ) {
 		switch ( $method ) {
 			case 'customizer':
-				$value = fw_get_db_customizer_option( $key );
+				$value = dm_theme_option( $key );
 				break;
 			default:
 				$value = '';
@@ -46,8 +46,8 @@ function sassico_option( $key, $default_value = '', $method = 'customizer' ) {
 // return the specific value from metabox
 // ----------------------------------------------------------------------------------------
 function sassico_meta_option( $postid, $key, $default_value = '' ) {
-	if ( defined( 'FW' ) ) {
-		$value = fw_get_db_post_option($postid, $key, $default_value);
+	if ( defined( 'DM' ) ) {
+		$value = dm_meta($postid, $key, $default_value);
 	}
 	return (!isset($value) || $value == '') ? $default_value :  $value;
 }
