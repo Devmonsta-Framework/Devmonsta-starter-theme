@@ -10,11 +10,11 @@ class Customizer extends \Devmonsta\Libs\Customizer
          * Add parent panels
          */
         $this->add_panel([
-            'id'             => 'devmonsta_panel',
+            'id'             => 'xs_theme_option_panel',
             'priority'       => 0,
             'theme_supports' => '',
-            'title'          => __('Theme settings', 'devmonsta'),
-            'description'    => __('Theme options panel', 'devmonsta'),
+            'title'          => __('Theme settings', 'sassico'),
+            'description'    => __('Theme options panel', 'sassico'),
         ]);
 
 
@@ -23,8 +23,8 @@ class Customizer extends \Devmonsta\Libs\Customizer
          */
         $this->add_section([
             'id'       => 'xs_header_settings_section',
-            'title'    => __('Header Control', 'devmonsta'),
-            'panel'    => 'devmonsta_panel',
+            'title'    => __('Header Control', 'sassico'),
+            'panel'    => 'xs_theme_option_panel',
             'priority' => 10,
         ]);
 
@@ -32,7 +32,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'id'      => 'header_contact_mail',
             'type'    => 'text',
             'default' => esc_html__('contact@domain.com', 'sassico'),
-            'label'   => __('Contact mail', 'devmonsta'),
+            'label'   => __('Contact mail', 'sassico'),
             'section' => 'xs_header_settings_section',
         ]);
 
@@ -40,7 +40,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'id'      => 'header_contact_address',
             'type'    => 'text',
             'default' => esc_html__('105 Roosevelt Street CA', 'sassico'),
-            'label'   => __('Contact address title', 'devmonsta'),
+            'label'   => esc_html__('Contact address title', 'sassico'),
             'section' => 'xs_header_settings_section',
         ]);
 
@@ -65,14 +65,14 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'id'      => 'header_nav_search_section',
             'type'    => 'switcher',
             'default' => 'right-choice',
-            'label'   => __('Search button show', 'sassico'),
-            'desc'    => __('Do you want to show search button in header ?', 'sassico'),
+            'label'   => esc_html__('Search button show', 'sassico'),
+            'desc'    => esc_html__('Do you want to show search button in header ?', 'sassico'),
             'section' => 'xs_header_settings_section',
             'left-choice'  => [
-                'no' => __('No', 'sassico'),
+                'no' => esc_html__('No', 'sassico'),
             ],
             'right-choice' => [
-                'yes' => __('Yes', 'sassico'),
+                'yes' => esc_html__('Yes', 'sassico'),
             ],
         ]);
 
@@ -80,14 +80,14 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'id'      => 'header_nav_sticky',
             'type'    => 'switcher',
             'default' => 'right-choice',
-            'label'   => __('Sticky header', 'sassico'),
-            'desc'    => __('Do you want to enable sticky nav?', 'sassico'),
+            'label'   => esc_html__('Sticky header', 'sassico'),
+            'desc'    => esc_html__('Do you want to enable sticky nav?', 'sassico'),
             'section' => 'xs_header_settings_section',
             'left-choice'  => [
-                'no' => __('No', 'sassico'),
+                'no' => esc_html__('No', 'sassico'),
             ],
             'right-choice' => [
-                'yes' => __('Yes', 'sassico'),
+                'yes' => esc_html__('Yes', 'sassico'),
             ],
         ]);
 
@@ -95,14 +95,14 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'id'      => 'header_top_info_show',
             'type'    => 'switcher',
             'default' => 'right-choice',
-            'label'   => __('Show Topbar', 'sassico'),
-            'desc'    => __('Do you want to enable show topbar?', 'sassico'),
+            'label'   => esc_html__('Show Topbar', 'sassico'),
+            'desc'    => esc_html__('Do you want to enable show topbar?', 'sassico'),
             'section' => 'xs_header_settings_section',
             'left-choice'  => [
-                'no' => __('No', 'sassico'),
+                'no' => esc_html__('No', 'sassico'),
             ],
             'right-choice' => [
-                'yes' => __('Yes', 'sassico'),
+                'yes' => esc_html__('Yes', 'sassico'),
             ],
         ]);
 
@@ -110,14 +110,14 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'id'      => 'header_nav_search_section',
             'type'    => 'switcher',
             'default' => 'right-choice',
-            'label'   => __('Search button show', 'sassico'),
-            'desc'    => __('Do you want to show search button in header ?', 'sassico'),
+            'label'   => esc_html__('Search button show', 'sassico'),
+            'desc'    => esc_html__('Do you want to show search button in header ?', 'sassico'),
             'section' => 'xs_header_settings_section',
             'left-choice'  => [
-                'no' => __('No', 'sassico'),
+                'no' => esc_html__('No', 'sassico'),
             ],
             'right-choice' => [
-                'yes' => __('Yes', 'sassico'),
+                'yes' => esc_html__('Yes', 'sassico'),
             ],
         ]);
 
@@ -125,13 +125,13 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'id'      => 'header_quota_button',
             'type'    => 'switcher',
             'default' => 'right-choice',
-            'label'   => __('Show CTA button', 'sassico'),
+            'label'   => esc_html__('Show Quote button', 'sassico'),
             'section' => 'xs_header_settings_section',
             'left-choice'  => [
-                'no' => __('No', 'sassico'),
+                'no' => esc_html__('No', 'sassico'),
             ],
             'right-choice' => [
-                'yes' => __('Yes', 'sassico'),
+                'yes' => esc_html__('Yes', 'sassico'),
             ],
         ]);
 
@@ -142,6 +142,13 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'desc'      => esc_html__('Navigation quote text.', 'sassico'),
             'default' => esc_html__('Get a quote', 'sassico'),
             'section' => 'xs_header_settings_section',
+            'conditions' => [
+                [
+                    'control_name'  => 'header_quota_button',
+                    'operator' => '==',
+                    'value'    => "yes",
+                ]
+            ],
         ]);
 
         $this->add_control([
@@ -151,6 +158,13 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'desc'      => esc_html__('Navigation quote link.', 'sassico'),
             'default' => esc_url('#'),
             'section' => 'xs_header_settings_section',
+            'conditions' => [
+                [
+                    'control_name'  => 'header_quota_button',
+                    'operator' => '==',
+                    'value'    => "yes",
+                ]
+            ],
         ]);
 
 
@@ -160,7 +174,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_section([
             'id'       => 'banner_settings_section',
             'title'    => esc_html__('Banner settings', 'sassico'),
-            'panel'    => 'devmonsta_panel',
+            'panel'    => 'xs_theme_option_panel',
             'priority' => 10,
         ]);
 
@@ -170,7 +184,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'type'    => 'switcher',
             'default' => 'right-choice',
             'label'   => esc_html__('Show banner?', 'sassico'),
-            'desc'          => esc_html__('Show or hide the banner', 'sassico'),
+            'desc'    => esc_html__('Show or hide the banner', 'sassico'),
             'section' => 'banner_settings_section',
             'left-choice'  => [
                 'no' => esc_html__('No', 'sassico'),
@@ -196,9 +210,9 @@ class Customizer extends \Devmonsta\Libs\Customizer
         ]);
 
         $this->add_control([
-            'id'      => 'page_banner_title',
-            'type'      => 'text',
-            'label'      => esc_html__('Banner Title', 'sassico'),
+            'id'    => 'page_banner_title',
+            'type'  => 'text',
+            'label' => esc_html__('Banner Title', 'sassico'),
             'section' => 'banner_settings_section',
         ]);
 
@@ -238,29 +252,240 @@ class Customizer extends \Devmonsta\Libs\Customizer
             ],
         ]);
 
+        /**
+         * Typography settings here
+         */
+        $this->add_section([
+            'id'       => 'typography_settings_section',
+            'title'    => esc_html__('Style settings', 'sassico'),
+            'panel'    => 'xs_theme_option_panel',
+            'priority' => 10,
+        ]);
 
+        /**
+         * body background control
+         */
+        $this->add_control( [
+            'id'      => 'style_body_bg',
+            'label'   => esc_html__( 'Body background', 'sassico' ),
+            'type'    => 'color',
+            'section' => 'typography_settings_section',
+            'default' => '#FFFFFF',
+        ] );
+
+        /**
+         * primary color control
+         */
+        $this->add_control( [
+            'id'      => 'style_primary',
+            'label'	  => esc_html__( 'Primary color', 'sassico' ),
+            'type'    => 'color',
+            'section' => 'typography_settings_section',
+            'default' => '#042ff8',
+        ] );
+
+        /**
+         * secondary color control
+         */
+        $this->add_control( [
+            'id'      => 'secondary_color',
+            'label'	  => esc_html__( 'Secondary color', 'sassico' ),
+            'type'    => 'color',
+            'section' => 'typography_settings_section',
+            'default' => '#f3bc3f',
+        ] );
+
+        /**
+         * Control for body Typography Input
+         */
+        $this->add_control([
+            'id'         => 'body_font',
+            'section'    => 'typography_settings_section',
+            'type'       => 'typography',
+            'value'      => [
+                'family'         => 'Roboto',
+                'weight'         => 400,
+                'size'           => 16,
+                'line_height'    => 26,
+                'color'          => '#777777',
+                'letter_spacing' => 0
+            ],
+            'components' => [
+                'family'         => true,
+                'size'           => true,
+                'line-height'    => true,
+                'letter-spacing' => true,
+                'weight'         => true,
+                'color'          => true,
+            ],
+            'label'      => __('Body Typhography', 'sassico'),
+        ]);
+
+        /**
+         * Control for H1 Typography Input
+         */
+        $this->add_control([
+            'id'         => 'heading_font_one',
+            'section'    => 'typography_settings_section',
+            'type'       => 'typography',
+            'value'      => [
+                'family'         => 'Poppins',
+                'weight'         => 700,
+                'size'           => 36,
+                'color'          => '#1a1a1a',
+            ],
+            'components' => [
+                'family'         => true,
+                'size'           => true,
+                'line-height'    => true,
+                'letter-spacing' => true,
+                'weight'         => true,
+                'color'          => true,
+            ],
+            'label'      => __('Heading H1 Typhography', 'sassico'),
+        ]);
+
+        /**
+         * Control for H2 Typography Input
+         */
+        $this->add_control([
+            'id'         => 'heading_font_two',
+            'section'    => 'typography_settings_section',
+            'type'       => 'typography',
+            'value'      => [
+                'family'         => 'Poppins',
+                'weight'         => 700,
+                'size'           => 30,
+                'color'          => '#1a1a1a',
+            ],
+            'components' => [
+                'family'         => true,
+                'size'           => true,
+                'line-height'    => true,
+                'letter-spacing' => true,
+                'weight'         => true,
+                'color'          => true,
+            ],
+            'label'      => __('Heading H2 Typhography', 'sassico'),
+        ]);
+
+        /**
+         * Control for H3 Typography Input
+         */
+        $this->add_control([
+            'id'         => 'heading_font_three',
+            'section'    => 'typography_settings_section',
+            'type'       => 'typography',
+            'value'      => [
+                'family'         => 'Poppins',
+                'weight'         => 700,
+                'size'           => 24,
+                'color'          => '#1a1a1a',
+            ],
+            'components' => [
+                'family'         => true,
+                'size'           => true,
+                'line-height'    => true,
+                'letter-spacing' => true,
+                'weight'         => true,
+                'color'          => true,
+            ],
+            'label'      => __('Heading H3 Typhography', 'sassico'),
+        ]);
+
+        /**
+         * Control for H4 Typography Input
+         */
+        $this->add_control([
+            'id'         => 'heading_font_four',
+            'section'    => 'typography_settings_section',
+            'type'       => 'typography',
+            'value'      => [
+                'family'         => 'Poppins',
+                'weight'         => 700,
+                'size'           => 18,
+                'color'          => '#1a1a1a',
+            ],
+            'components' => [
+                'family'         => true,
+                'size'           => true,
+                'line-height'    => true,
+                'letter-spacing' => true,
+                'weight'         => true,
+                'color'          => true,
+            ],
+            'label'      => __('Heading H4 Typhography', 'sassico'),
+        ]);
+
+        /**
+         * Control for H5 Typography Input
+         */
+        $this->add_control([
+            'id'         => 'heading_font_five',
+            'section'    => 'typography_settings_section',
+            'type'       => 'typography',
+            'value'      => [
+                'family'         => 'Poppins',
+                'weight'         => 700,
+                'size'           => 16,
+                'color'          => '#1a1a1a',
+            ],
+            'components' => [
+                'family'         => true,
+                'size'           => true,
+                'line-height'    => true,
+                'letter-spacing' => true,
+                'weight'         => true,
+                'color'          => true,
+            ],
+            'label'      => __('Heading H5 Typhography', 'sassico'),
+        ]);
+
+        /**
+         * Control for H6 Typography Input
+         */
+        $this->add_control([
+            'id'         => 'heading_font_six',
+            'section'    => 'typography_settings_section',
+            'type'       => 'typography',
+            'value'      => [
+                'family'         => 'Poppins',
+                'weight'         => 700,
+                'size'           => 14,
+                'color'          => '#1a1a1a',
+            ],
+            'components' => [
+                'family'         => true,
+                'size'           => true,
+                'line-height'    => true,
+                'letter-spacing' => true,
+                'weight'         => true,
+                'color'          => true,
+            ],
+            'label'      => __('Heading H6 Typhography', 'sassico'),
+        ]);
 
         /**
          * test controls
          */
         $this->add_section([
             'id'       => 'devmonsta_text_settings_section',
-            'title'    => __('Text settings', 'devmonsta'),
-            'panel'    => 'devmonsta_panel',
+            'title'    => __('Text settings', 'sassico'),
+            'panel'    => 'xs_theme_option_panel',
             'priority' => 10,
         ]);
 
         $this->add_section([
             'id'       => 'dm_repeater_section',
             'title'    => 'Devmonsta repeater section',
-            'panel'    => 'devmonsta_panel',
+            'panel'    => 'xs_theme_option_panel',
             'priority' => 10,
         ]);
 
         $this->add_section([
             'id'       => 'dm_new_controls',
             'title'    => 'New controls',
-            'panel'    => 'devmonsta_panel',
+            'panel'    => 'xs_theme_option_panel',
             'priority' => 10,
         ]);
 
@@ -279,7 +504,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         //     'id'      => 'dm_ctrl_text_1',
         //     'type'    => 'text',
         //     'value'   => 'default text',
-        //     'label'   => __( 'Text Input', 'devmonsta' ),
+        //     'label'   => __( 'Text Input', 'sassico' ),
         //     'section' => 'devmonsta_text_settings_section',
         // ] );
 
@@ -370,7 +595,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         //  */
         // $this->add_control( [
         //     'id'      => 'person_hair_color',
-        //     'label'   => __( 'Hair Color', 'devmonsta' ),
+        //     'label'   => __( 'Hair Color', 'sassico' ),
         //     'type'    => 'color',
         //     'section' => 'devmonsta_text_settings_section',
         //     'default' => '#eeee22',
@@ -383,7 +608,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         //     'id'      => 'dm_media',
         //     'type'    => 'media',
         //     'section' => 'devmonsta_text_settings_section',
-        //     'label'   => __( 'Media', 'devmonsta' ),
+        //     'label'   => __( 'Media', 'sassico' ),
         // ] );
 
         /**
@@ -764,21 +989,21 @@ class Customizer extends \Devmonsta\Libs\Customizer
 
         $this->add_control([
             'id'      => 'dm_toggle',
-            'label'   => __('Toggle', 'devmonsta'),
+            'label'   => __('Toggle', 'sassico'),
             'section' => 'dm_new_controls',
             'type'    => 'toggle',
         ]);
 
         $this->add_control([
             'id'      => 'dm_accordion',
-            'lable'   => __('Accordion', 'devmonsta'),
+            'lable'   => __('Accordion', 'sassico'),
             'section' => 'dm_new_controls',
             'type'    => 'toggle',
         ]);
 
         $this->add_control([
             'id'          => 'dm_accordion',
-            'lable'       => __('Accordion', 'devmonsta'),
+            'lable'       => __('Accordion', 'sassico'),
             'section'     => 'dm_new_controls',
             'type'        => 'accordion',
             'description' => [
@@ -788,7 +1013,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
 
         $this->add_control([
             'id'          => 'dm_html_editor',
-            'lable'       => __('HTML Editor', 'devmonsta'),
+            'lable'       => __('HTML Editor', 'sassico'),
             'section'     => 'dm_new_controls',
             'type'        => 'html-editor',
         ]);
@@ -798,37 +1023,37 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'label'           => 'List',
             'type'            => 'repeater',
             'section'         => 'dm_repeater_section',
-            'add_button_text' => __('Add new', 'devmonsta'),
+            'add_button_text' => __('Add new', 'sassico'),
             'fields'          => [
                 [
                     'id'    => 'person_name',
-                    'label' => __('Name', 'devmonsta'),
+                    'label' => __('Name', 'sassico'),
                     'type'  => 'text',
                 ],
                 [
                     'id'    => 'person_email',
-                    'label' => __('Email', 'devmonsta'),
+                    'label' => __('Email', 'sassico'),
                     'type'  => 'email',
                 ],
                 [
                     'id'    => 'person_birht_date',
-                    'label' => __('Date of birth', 'devmonsta'),
+                    'label' => __('Date of birth', 'sassico'),
                     'type'  => 'date',
                 ],
 
                 [
                     'id'    => 'person_child',
-                    'label' => __('Child', 'devmonsta'),
+                    'label' => __('Child', 'sassico'),
                     'type'  => 'number',
                 ],
                 [
                     'id'    => 'person_color',
-                    'label' => __('Awesome Color', 'devmonsta'),
+                    'label' => __('Awesome Color', 'sassico'),
                     'type'  => 'color',
                 ],
                 [
                     'id'    => 'person_hair_color',
-                    'label' => __('Hair Color', 'devmonsta'),
+                    'label' => __('Hair Color', 'sassico'),
                     'type'  => 'color',
                 ],
                 [
@@ -865,37 +1090,37 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'label'           => 'Popup',
             'type'            => 'addable-popup',
             'section'         => 'dm_repeater_section',
-            'add_button_text' => __('Add new', 'devmonsta'),
+            'add_button_text' => __('Add new', 'sassico'),
             'fields'          => [
                 [
                     'id'    => 'person_name_popup',
-                    'label' => __('Name', 'devmonsta'),
+                    'label' => __('Name', 'sassico'),
                     'type'  => 'text',
                 ],
                 [
                     'id'    => 'person_email_popup',
-                    'label' => __('Email', 'devmonsta'),
+                    'label' => __('Email', 'sassico'),
                     'type'  => 'email',
                 ],
                 [
                     'id'    => 'person_birht_date_popup',
-                    'label' => __('Date of birth', 'devmonsta'),
+                    'label' => __('Date of birth', 'sassico'),
                     'type'  => 'date',
                 ],
 
                 [
                     'id'    => 'person_child_popup',
-                    'label' => __('Child', 'devmonsta'),
+                    'label' => __('Child', 'sassico'),
                     'type'  => 'number',
                 ],
                 [
                     'id'    => 'person_color_popup',
-                    'label' => __('Awesome Color', 'devmonsta'),
+                    'label' => __('Awesome Color', 'sassico'),
                     'type'  => 'color',
                 ],
                 [
                     'id'    => 'person_hair_color_popup',
-                    'label' => __('Hair Color', 'devmonsta'),
+                    'label' => __('Hair Color', 'sassico'),
                     'type'  => 'color',
                 ],
                 [
