@@ -159,7 +159,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_control([
             'id'      => 'page_show_banner',
             'type'    => 'switcher',
-            'default' => 'right-choice',
+            'default' => 'yes',
             'label'   => esc_html__('Show banner?', 'sassico'),
             'desc'          => esc_html__('Show or hide the banner', 'sassico'),
             'section' => 'banner_settings_section',
@@ -201,7 +201,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         ]);
 
         $this->add_control([
-            'id'      => 'page_show_background_overlay_switch',
+            'id'      => 'show_page_banner_overlay',
             'type'    => 'switcher',
             'default' => 'right-choice',
             'label'   => esc_html__('Show background overlay', 'sassico'),
@@ -216,17 +216,10 @@ class Customizer extends \Devmonsta\Libs\Customizer
 
 
         $this->add_control([
-            'id'       => 'page_banner_overlay_style',
+            'id'       => 'page_banner_overlay_color',
             'section'  => 'banner_settings_section',
             'type'     => 'rgba-color-picker',
             'label'    => esc_html__('Banner Overlay Color', 'sassico'),
-            'conditions' => [
-                [
-                    'control_name'  => 'page_show_background_overlay_switch',
-                    'operator' => '==',
-                    'value'    => "yes",
-                ]
-            ],
         ]);
 
 

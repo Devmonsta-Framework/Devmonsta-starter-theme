@@ -9,62 +9,55 @@ if (defined('DM')) {
     // page meta options
     $page_banner_title        = sassico_meta_option(get_the_ID(), 'header_title');
     $banner_image             = sassico_meta_option(get_the_ID(), 'header_image');
-
-    dm_print($banner_image);
     // customizer options
-    $banner_settings          = sassico_option('page_banner_setting');
-    $header_style             = sassico_option('header_layout_style', 'standard');
-    $banner_overlay           = $banner_settings['page_show_background_overlay_switch'];
+    $page_show_banner         = sassico_option('page_show_banner');
+    $page_show_breadcrumb     = sassico_option('page_show_breadcrumb');
+    $banner_page_image        = sassico_option('banner_page_image');
+    $banner_overlay_show      = sassico_setup('show_page_banner_overlay');
+    $page_banner_overlay_color = sassico_setup('page_banner_overlay_color');
 
     //title
     if ($page_banner_title != '') {
         $banner_title = $page_banner_title;
-    } elseif ($banner_settings['banner_page_title'] != '') {
-        $banner_title = $banner_settings['banner_page_title'];
+    } elseif (sassico_option('page_banner_title') != '') {
+        $banner_title = sassico_option('page_banner_title');
     } else {
         $banner_title   = get_the_title();
     }
 
     //image
-    if (isset($banner_image) && $banner_image !='') {
+    if (isset($banner_image) && $banner_image != '') {
         $banner_image = wp_get_attachment_url($banner_image);
-    } elseif (is_array($banner_settings['banner_page_image']) && $banner_settings['banner_page_image']['url'] != '') {
-        $banner_image = $banner_settings['banner_page_image']['url'];
+    } elseif (isset($banner_page_image) && $banner_page_image != '') {
+        $banner_image = wp_get_attachment_url($banner_page_image);
     } else {
-
         $banner_image = SASSICO_IMG . '/banner/bredcumbs-1.png';
     }
 
-    $show = (isset($banner_settings['page_show_banner'])) ? $banner_settings['page_show_banner'] : 'yes';
+    // show banner
+    $show = (isset($page_show_banner)) ? $page_show_banner : 'yes';
     // breadcumb
-    $show_breadcrumb =  (isset($banner_settings['page_show_breadcrumb'])) ? $banner_settings['page_show_breadcrumb'] : 'yes';
+    $show_breadcrumb =  (isset($page_show_breadcrumb)) ? $page_show_breadcrumb : 'yes';
 } else {
     //default
-    $page_sub_menu             = '';
     $banner_image             = SASSICO_IMG . '/banner/bredcumbs-1.png';
     $banner_title             = get_the_title();
     $show                     = 'yes';
     $show_breadcrumb          = 'no';
+    $banner_overlay_show      = 'no';
 }
 if ($banner_image != '') {
     $banner_image = 'style="background-image:url(' . esc_url($banner_image) . ');"';
 }
-$banner_heading_class = '';
-if ($header_style == "transparent") :
-    $banner_heading_class     = "mt-80";
 
-
-endif;
 
 ?>
 
 <?php if (isset($show) && $show == 'yes') : ?>
 
     <section class="xs-jumbotron sassico-innner-page-banner d-flex align-items-center <?php echo esc_attr($banner_image == '' ? 'banner-solid' : 'banner-bg'); ?>" <?php echo wp_kses_post($banner_image); ?>>
-        <?php if ($banner_overlay === 'yes') {
-            $banner_overlay_color = $banner_settings['page_show_background_overlay']['yes']['page_banner_overlay_style'];
-        ?>
-            <div class="xs-solid-overlay" style="background-color: <?php echo esc_attr($banner_overlay_color === '' ? 'rgba(0,0,0,.5)' : $banner_overlay_color); ?>"></div>
+        <?php if ($banner_overlay_show === 'yes') { ?>
+            <div class="xs-solid-overlay" style="background-color: <?php echo esc_attr($page_banner_overlay_color === '' ? 'rgba(0,0,0,.5)' : $page_banner_overlay_color); ?>"></div>
         <?php }; ?>
 
         <div class="container">
