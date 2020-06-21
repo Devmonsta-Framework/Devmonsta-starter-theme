@@ -1,69 +1,70 @@
-<?php 
+<?php
 $banner_image    = '';
 $banner_title    = '';
 $banner_style    = 'full';
 $header_style    = 'standard';
 
-if ( defined( 'FW' ) ) { 
+if (defined('DM')) {
 
-    $page_sub_menu            = sassico_meta_option( get_the_ID(), 'sub_header_menu' );
+    // page meta options
+    $page_banner_title        = sassico_meta_option(get_the_ID(), 'header_title');
+    $banner_image             = sassico_meta_option(get_the_ID(), 'header_image');
+
+    dm_print($banner_image);
+    // customizer options
     $banner_settings          = sassico_option('page_banner_setting');
-    $banner_image             = sassico_meta_option( get_the_ID(), 'header_image' );
     $header_style             = sassico_option('header_layout_style', 'standard');
-
     $banner_overlay           = $banner_settings['page_show_background_overlay_switch'];
+
     //title
-    if(sassico_meta_option( get_the_ID(), 'header_title' ) != ''){
-        $banner_title = sassico_meta_option( get_the_ID(), 'header_title' );
-     }elseif($banner_settings['banner_page_title'] != ''){
+    if ($page_banner_title != '') {
+        $banner_title = $page_banner_title;
+    } elseif ($banner_settings['banner_page_title'] != '') {
         $banner_title = $banner_settings['banner_page_title'];
-    }else{
-      $banner_title   = get_the_title();
+    } else {
+        $banner_title   = get_the_title();
     }
-    
+
     //image
-    if(is_array($banner_image) && $banner_image['url'] != '' ){
-        $banner_image = $banner_image['url'];
-    }elseif( is_array($banner_settings['banner_page_image']) && $banner_settings['banner_page_image']['url'] != ''){
-          $banner_image = $banner_settings['banner_page_image']['url'];
-    }else{
-      
-         $banner_image = SASSICO_IMG.'/banner/bredcumbs-1.png';
+    if (isset($banner_image) && $banner_image !='') {
+        $banner_image = wp_get_attachment_url($banner_image);
+    } elseif (is_array($banner_settings['banner_page_image']) && $banner_settings['banner_page_image']['url'] != '') {
+        $banner_image = $banner_settings['banner_page_image']['url'];
+    } else {
+
+        $banner_image = SASSICO_IMG . '/banner/bredcumbs-1.png';
     }
-     
-   $show = (isset($banner_settings['page_show_banner'])) ? $banner_settings['page_show_banner'] : 'yes'; 
-   // breadcumb
-   $show_breadcrumb =  (isset($banner_settings['page_show_breadcrumb'])) ? $banner_settings['page_show_breadcrumb'] : 'yes';
 
- 
- }else{
-     //default
+    $show = (isset($banner_settings['page_show_banner'])) ? $banner_settings['page_show_banner'] : 'yes';
+    // breadcumb
+    $show_breadcrumb =  (isset($banner_settings['page_show_breadcrumb'])) ? $banner_settings['page_show_breadcrumb'] : 'yes';
+} else {
+    //default
     $page_sub_menu             = '';
-     $banner_image             = SASSICO_IMG.'/banner/bredcumbs-1.png';
-     $banner_title             = get_the_title();
-     $show                     = 'yes';
-     $show_breadcrumb          = 'no';
+    $banner_image             = SASSICO_IMG . '/banner/bredcumbs-1.png';
+    $banner_title             = get_the_title();
+    $show                     = 'yes';
+    $show_breadcrumb          = 'no';
+}
+if ($banner_image != '') {
+    $banner_image = 'style="background-image:url(' . esc_url($banner_image) . ');"';
+}
+$banner_heading_class = '';
+if ($header_style == "transparent") :
+    $banner_heading_class     = "mt-80";
 
- }
- if( $banner_image != ''){
-    $banner_image = 'style="background-image:url('.esc_url( $banner_image ).');"';
- }
- $banner_heading_class = '';
-if($header_style=="transparent"):
-   $banner_heading_class     = "mt-80";   
 
-
-endif;  
+endif;
 
 ?>
 
-<?php if(isset($show) && $show == 'yes'): ?>
+<?php if (isset($show) && $show == 'yes') : ?>
 
-    <section class="xs-jumbotron sassico-innner-page-banner d-flex align-items-center <?php echo esc_attr($banner_image == ''?'banner-solid':'banner-bg'); ?>" <?php echo wp_kses_post( $banner_image ); ?>>
-        <?php if ($banner_overlay === 'yes') { 
+    <section class="xs-jumbotron sassico-innner-page-banner d-flex align-items-center <?php echo esc_attr($banner_image == '' ? 'banner-solid' : 'banner-bg'); ?>" <?php echo wp_kses_post($banner_image); ?>>
+        <?php if ($banner_overlay === 'yes') {
             $banner_overlay_color = $banner_settings['page_show_background_overlay']['yes']['page_banner_overlay_style'];
-            ?>
-        <div class="xs-solid-overlay" style="background-color: <?php echo esc_attr($banner_overlay_color === '' ? 'rgba(0,0,0,.5)' : $banner_overlay_color); ?>"></div>
+        ?>
+            <div class="xs-solid-overlay" style="background-color: <?php echo esc_attr($banner_overlay_color === '' ? 'rgba(0,0,0,.5)' : $banner_overlay_color); ?>"></div>
         <?php }; ?>
 
         <div class="container">
@@ -72,17 +73,16 @@ endif;
                     <div class="xs-jumbotron-content-wraper">
                         <h3 class="xs-jumbotron-title">
                             <?php
-                            if(is_archive()){
+                            if (is_archive()) {
                                 the_archive_title();
-                            }elseif(is_single()){
+                            } elseif (is_single()) {
                                 the_title();
-                            }
-                            else{
-                                echo wp_kses_post( $banner_title);
+                            } else {
+                                echo wp_kses_post($banner_title);
                             }
                             ?>
                         </h3>
-                        <?php if(isset($show_breadcrumb) && $show_breadcrumb == 'yes'): ?>
+                        <?php if (isset($show_breadcrumb) && $show_breadcrumb == 'yes') : ?>
                             <?php sassico_get_breadcrumbs(" / "); ?>
                         <?php endif; ?>
                     </div>
@@ -94,22 +94,22 @@ endif;
 
 <?php endif;
 
-if(isset($page_sub_menu) && $page_sub_menu == 'yes'):
+if (isset($page_sub_menu) && $page_sub_menu == 'yes') :
 ?>
 
-<div class="xs-page-navigation">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <?php
-                wp_nav_menu([
+    <div class="xs-page-navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <?php
+                    wp_nav_menu([
                         'theme_location' => 'submenu',
-                         'container'     => '',
-                         'menu_class'    => 'xs-page-nav'
-                ]); ?>
+                        'container'     => '',
+                        'menu_class'    => 'xs-page-nav'
+                    ]); ?>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 <?php endif;

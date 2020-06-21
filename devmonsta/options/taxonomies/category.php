@@ -15,8 +15,8 @@ class Category extends Taxonomies
                 'icon' => 'fas fa-at',
                 'type' => 'dm-font-awesome',
             ],
-            'label' => __('Select Icon', '{domain}'),
-            'desc'  => __('Select icon description', '{domain}'),
+            'label' => esc_html__('Select Icon', 'sassico'),
+            'desc'  => esc_html__('Select icon description', 'sassico'),
             'attr'  => ['class' => 'custom-class', 'data-foo' => 'bar'],
         ]);
     }
