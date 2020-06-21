@@ -47,7 +47,7 @@ function sassico_option( $key, $default_value = '', $method = 'customizer' ) {
 // ----------------------------------------------------------------------------------------
 function sassico_meta_option( $postid, $key, $default_value = '' ) {
 	if ( defined( 'DM' ) ) {
-		$value = dm_meta($postid, $key, $default_value);
+		$value = dm_meta_option($postid, $key, $default_value);
 	}
 	return (!isset($value) || $value == '') ? $default_value :  $value;
 }

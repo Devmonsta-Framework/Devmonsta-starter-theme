@@ -3,7 +3,7 @@
    $banner_title    = '';
    $header_style    = 'standard';
    
-if ( defined( 'FW' ) ) { 
+if ( defined( 'DMS' ) ) { 
    $banner_settings         = sassico_option('blog_banner_setting');
    $banner_style            = sassico_option('sub_page_banner_style');
    $header_style            = sassico_option('header_layout_style', 'standard');
