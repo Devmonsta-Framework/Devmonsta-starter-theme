@@ -108,7 +108,7 @@ function sassico_post_meta() {
 	<div class="post-meta">
 		<?php
 
-           $style_primary = sassico_option( 'blog_author', 'no');
+		   $style_primary = sassico_option( 'blog_author', 'no');
 
            if($style_primary == 'yes') :
 			printf(
