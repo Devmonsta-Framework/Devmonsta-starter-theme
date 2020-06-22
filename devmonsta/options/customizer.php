@@ -57,32 +57,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'desc'   => esc_html__("It's the main logo, mostly it will be shown on dark or coloreful type area.
             ", 'sassico'),
         ]);
-        // $this->add_control([
-        //     'id'              => 'general_social_links',
-        //     'label'           => esc_html__('Social Links', 'sassico'),
-        //     'type'            => 'repeater',
-        //     'section'         => 'general_settings_section',
-        //     'add_button_text' => esc_html__('Add new Social', 'sassico'),
-        //     'fields'          => [
-        //         [
-        //             'id'    => 'title',
-        //             'label' => esc_html__('Title', 'sassico'),
-        //             'type'  => 'text',
-        //         ],
-
-        //         [
-        //             'id'    => 'icon_class',
-        //             'label' => esc_html__('Social icon', 'sassico'),
-        //             'type'  => 'icon',
-        //         ],
-        //         [
-        //             'id'    => 'url',
-        //             'label' => esc_html__('Social Link', 'sassico'),
-        //             'type'  => 'text',
-        //         ],
-
-        //     ],
-        // ]);
+ 
 
         /**
          * Header settings here
@@ -728,32 +703,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'label'       =>  esc_html__('Copyright text', 'sassico'),
             'desc'        =>  esc_html__('This text will be shown at the footer of all pages.', 'sassico'),
         ]);
-        // $this->add_control([
-        //     'id'              => 'footer_social_links',
-        //     'label'           => esc_html__('Social Links', 'sassico'),
-        //     'type'            => 'repeater',
-        //     'section'         => 'footer_settings_section',
-        //     'add_button_text' => esc_html__('Add new Social', 'sassico'),
-        //     'fields'          => [
-        //         [
-        //             'id'    => 'title',
-        //             'label' => esc_html__('Title', 'sassico'),
-        //             'type'  => 'text',
-        //         ],
-
-        //         [
-        //             'id'    => 'icon_class',
-        //             'label' => esc_html__('Social icon', 'sassico'),
-        //             'type'  => 'icon',
-        //         ],
-        //         [
-        //             'id'    => 'url',
-        //             'label' => esc_html__('Social Link', 'sassico'),
-        //             'type'  => 'text',
-        //         ],
-
-        //     ],
-        // ]);
+    
 
         $this->add_control([
             'id'        => 'footer_padding_top',
