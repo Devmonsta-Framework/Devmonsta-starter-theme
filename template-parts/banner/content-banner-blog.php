@@ -3,7 +3,7 @@
    $banner_title    = '';
    $header_style    = 'standard';
 
-if ( defined( 'DMS' ) ) {
+if ( defined( 'FW' ) ) {
    $banner_settings         = sassico_option('blog_banner_setting');
    $banner_style            = sassico_option('sub_page_banner_style');
    $header_style            = sassico_option('header_layout_style', 'standard');
@@ -46,7 +46,7 @@ if (is_single() || is_search() || is_home()) {
 
 ?>
 
-<?php if(isset($show) && $show == 'yes'): ?>
+<?php if(isset($show) && $show == 'yes' && defined( 'FW' )): ?>
 
     <section class="<?php echo esc_attr($wraper_class); echo esc_attr($banner_image == '' ?' banner-solid':' banner-bg'); ?>" <?php echo wp_kses_post( $banner_image ); ?>>
         <?php if ($banner_overlay === 'yes') {
@@ -58,7 +58,7 @@ if (is_single() || is_search() || is_home()) {
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="xs-jumbotron-content-wraper">
-                        <h1 class="xs-jumbotron-title">
+                        <h3 class="xs-jumbotron-title">
                             <?php
                             if(is_archive()){
                                 the_archive_title();
@@ -68,7 +68,7 @@ if (is_single() || is_search() || is_home()) {
                                 echo esc_html($banner_title);
                             }
                             ?>
-                        </h1>
+                        </h3>
 
                         <?php if(isset($show_breadcrumb) && $show_breadcrumb == 'yes'): ?>
                             <?php sassico_get_breadcrumbs(" > "); ?>

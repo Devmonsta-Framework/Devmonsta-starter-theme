@@ -1,7 +1,7 @@
 <?php
 
 function sassico_fw_ext_backups_demos( $demos ) {
-	$demo_content_installer	 = 'http://wp.xpeedstudio.com/demo-content/sassico';
+	$demo_content_installer	 = SASSICO_REMOTE_CONTENT;
 	$demos_array			 = array(
 		'default'			 => array(
 			'title'			 => esc_html__( '1-12 Demos with one pages', 'sassico' ),

@@ -2,13 +2,15 @@
 
 class Customizer extends \Devmonsta\Libs\Customizer
 {
-
     public function register_controls()
     {
 
         /**
          * Add parent panels
          */
+
+        include_once(get_template_directory(  ) . '/core/helpers/functions/global.php');
+
         $this->add_panel([
             'id'             => 'xs_theme_option_panel',
             'priority'       => 0,
@@ -70,6 +72,43 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'panel'    => 'xs_theme_option_panel',
             'priority' => 10,
         ]);
+
+        /**
+         * Header builder switch here
+         */
+        $this->add_control([
+            'id'      => 'header_builder_control_enable',
+            'type'    => 'switcher',
+            'default' => 'right-choice',
+            'label'   => esc_html__('Header builder Enable ?', 'sassico'),
+            'desc'    => esc_html__('Do you want to enable n in header ?', 'sassico'),
+            'section' => 'xs_header_settings_section',
+            'left-choice'  => [
+                'no' => esc_html__('No', 'sassico'),
+            ],
+            'right-choice' => [
+                'yes' => esc_html__('Yes', 'sassico'),
+            ],
+        ]);
+
+        $this->add_control([
+            'id'      => 'header_builder_select',
+            'type'    => 'select',
+            'value'   => '1',
+            'label' => esc_html__('Header', 'sassico'),
+            'section' => 'xs_header_settings_section',
+            'choices' => sassico_ekit_headers(),
+        ]);
+
+        // dm_print(sassico_ekit_headers());
+        error_log(serialize(sassico_ekit_headers()));
+
+        // $this->add_control([
+        //     'id'      => 'header_builder_control_enable_html',
+        //     'section' => 'xs_header_settings_section',
+        //     'type'    => 'html',
+        //     'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href='. admin_url( 'post.php?action=elementor&post='.$header_id ). '>'. esc_html('Edit content here.'). '</a><h2><h3><a style="text-transform: uppercase; color:#17a2b8" target="_blank" href="https://support.xpeedstudio.com/knowledgebase/customize-beauty-press-header-builder/">'. esc_html('How to edit header'). '</a><h3>',
+        // ]);
 
         $this->add_control([
             'id'      => 'header_contact_mail',

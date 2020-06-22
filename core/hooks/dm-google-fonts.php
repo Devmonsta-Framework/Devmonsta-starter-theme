@@ -13,8 +13,8 @@ class Sassico_DM_Google_Fonts {
 	public static function add_typography_v2( $value ) {
 		$json_decode = json_decode($value, true);
 		if ( in_array( isset( $json_decode[ 'family' ] ), array( true, 'true' ), true ) ) {
-			self::$data[ 'family' ][ $json_decode[ 'family' ] ][ 'variants' ][ (string) $json_decode[ 'variation' ] ] = true;
-			self::$data[ 'subset' ][ $json_decode[ 'subset' ] ] = true;
+			self::$data[ 'family' ][ $json_decode[ 'family' ] ][ 'variants' ][ (string) $json_decode[ 'weight' ] ] = true;
+			self::$data[ 'subset' ][ $json_decode[ 'style' ] ] = true;
 		}
 	}
 
@@ -55,6 +55,7 @@ class Sassico_DM_Google_Fonts {
 	}
 
 	public static function output_url() {
+		dm_print(self::generate_url());
 		if ( $url = self::generate_url() ):
 			?><link href="<?php echo esc_attr( $url ) ?>" rel="stylesheet"><?php
 		endif;

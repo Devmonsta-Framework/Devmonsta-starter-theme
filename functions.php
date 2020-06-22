@@ -2,7 +2,7 @@
 
 /**
  * theme's main functions and globally usable variables, contants etc
- * added: v1.0 
+ * added: v1.0
  * textdomain: sassico, class: SASSICO, var: $sassico_, constants: SASSICO_, function: sassico_
  */
 
@@ -75,8 +75,6 @@ function sassico_setup() {
     add_image_size( 'sassico-large', 1110, 740, ['center', 'center'] );
     add_image_size( 'sassico-case-study-box', 320, 200, ['center', 'center'] );
 
- 
- 
     // register navigation menus
     register_nav_menus(
         [
