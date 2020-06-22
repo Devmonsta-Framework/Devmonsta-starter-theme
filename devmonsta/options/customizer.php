@@ -2,6 +2,18 @@
 
 class Customizer extends \Devmonsta\Libs\Customizer
 {
+
+    public function builder_template_id() {
+        $header_settings = sassico_option('header_builder_select');
+        $header_id = '';
+        $header_builder_enable = sassico_option('header_builder_control_enable');
+        if($header_builder_enable=='yes'){
+            $header_id =   $header_settings;
+        }
+        echo $header_id;
+        return $header_id;
+    }
+
     public function register_controls()
     {
 
@@ -10,7 +22,6 @@ class Customizer extends \Devmonsta\Libs\Customizer
          */
 
         include_once(get_template_directory(  ) . '/core/helpers/functions/global.php');
-
         $this->add_panel([
             'id'             => 'xs_theme_option_panel',
             'priority'       => 0,
@@ -107,7 +118,30 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'value'   => '1',
             'label' => esc_html__('Header', 'sassico'),
             'section' => 'xs_header_settings_section',
-            // 'choices' => arr(),
+            'choices' => sassico_ekit_headers(),
+            'conditions' => [
+                [
+                    'control_name'  => 'header_builder_control_enable',
+                    'operator' => '==',
+                    'value'    => "yes",
+                ]
+            ],
+        ]);
+
+        $this->add_control([
+            'id'      => 'header_builder_select_html',
+            'section' => 'xs_header_settings_section',
+            'label'   => __('Html Input', 'sassico'),
+            'desc'    => __('html description goes here', 'sassico'),
+            'type'    => 'html',
+            'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href='. admin_url( 'post.php?action=elementor&post='.$this->builder_template_id() ). '>'. esc_html('Edit content here.'). '</a><h2>',
+            'conditions' => [
+                [
+                    'control_name'  => 'header_builder_control_enable',
+                    'operator' => '==',
+                    'value'    => "",
+                ]
+            ],
         ]);
 
         $this->add_control([
@@ -116,6 +150,13 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'default' => esc_html__('contact@domain.com', 'sassico'),
             'label'   => __('Contact mail', 'sassico'),
             'section' => 'xs_header_settings_section',
+            'conditions' => [
+                [
+                    'control_name'  => 'header_builder_control_enable',
+                    'operator' => '==',
+                    'value'    => "",
+                ]
+            ],
         ]);
 
         $this->add_control([

@@ -5,8 +5,8 @@ function sassico_header_builder_kit(){
         return;
     }
 
-    $header_settings       = sassico_option('theme_header_default_settings');
-    $header_builder_enable = sassico_option('header_builder_enable');
+    $header_settings       = sassico_option('header_builder_select');
+    $header_builder_enable = sassico_option('header_builder_control_enable');
 
     if($header_builder_enable=='yes'){
         $args = [

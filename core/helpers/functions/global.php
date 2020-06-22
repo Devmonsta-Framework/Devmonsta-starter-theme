@@ -415,9 +415,8 @@ if ( !function_exists( 'sassico_languages_list_wpml' ) ) :
 endif;
 
 function sassico_ekit_headers($format='html'){
-
-    if(class_exists('ElementsKit')){
-        $select = [];
+	// if(class_exists('ElementsKit')){
+		$select = [];
         $args = array(
 			'posts_per_page'   => -1,
 			'post_type' => 'elementskit_template',
@@ -426,13 +425,15 @@ function sassico_ekit_headers($format='html'){
         );
         $headers = get_posts($args);
         foreach($headers as $header) {
-            $select[$header->ID ] = $header->post_title;
+			$select[$header->ID ] = $header->post_title;
         }
+		// var_dump($select);
         return $select;
-
-    }
-    return [];
+    // }
+    // return [];
 }
+
+sassico_ekit_headers();
 
 function sassico_ekit_footers($format='html'){
     if(class_exists('ElementsKit')){

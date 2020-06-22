@@ -18,15 +18,15 @@
 if( function_exists('wp_body_open')){
    wp_body_open();
 }
-$header_builder_enable = sassico_option('header_builder_enable', 'no');
-$header_settings = sassico_option('theme_header_default_settings');
+$header_builder_enable = sassico_option('header_builder_control_enable');
+$header_settings = sassico_option('header_builder_select');
 
-if($header_builder_enable=='yes' && class_exists('ElementsKit')){
+if($header_builder_enable == 'yes' && class_exists('ElementsKit')){
   if(class_exists('\ElementsKit\Utils::render_elementor_content')){
-     echo \ElementsKit\Utils::render_elementor_content($header_settings['yes']['sassico_header_builder_select']);
+     echo \ElementsKit\Utils::render_elementor_content($header_settings);
    }else{
       $elementor = \Elementor\Plugin::instance();
-      echo \ElementsKit\Utils::render($elementor->frontend->get_builder_content_for_display( $header_settings['yes']['sassico_header_builder_select'] ));
+      echo \ElementsKit\Utils::render($elementor->frontend->get_builder_content_for_display( $header_settings));
    }
 }else{
   get_template_part( 'template-parts/headers/header', 'content' );
