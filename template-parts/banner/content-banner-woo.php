@@ -43,7 +43,7 @@ endif;
 
 <?php if(isset($show) && $show == 'yes'): ?>
     <section class="xs-jumbotron d-flex align-items-center  xs_single_blog_banner  banner-bg" <?php echo wp_kses_post( $banner_image ); ?>>
-		<?php if ($banner_overlay === 'yes') { 
+		<?php if ($banner_overlay === 'yes') {
             $banner_overlay_color = $banner_settings['shop_show_background_overlay']['yes']['shop_banner_overlay_style'];
             ?>
         <div class="xs-solid-overlay" style="background-color: <?php echo esc_attr($banner_overlay_color === '' ? 'rgba(0,0,0,.5)' : $banner_overlay_color); ?>"></div>
@@ -52,7 +52,7 @@ endif;
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="xs-jumbotron-content-wraper">
-                        <h3 class="xs-jumbotron-title">
+                        <h1 class="xs-jumbotron-title">
 		                    <?php
 		                    if(is_archive()){
 			                    the_archive_title();
@@ -62,7 +62,7 @@ endif;
 		                        wp_title();
                             }
 		                    ?>
-                        </h3>
+                        </h1>
 
                     </div>
                 </div>

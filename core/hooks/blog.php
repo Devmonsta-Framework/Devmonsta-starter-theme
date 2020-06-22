@@ -46,14 +46,8 @@ function sassico_body_classes( $classes ) {
     }else{
         $classes[] = 'sidebar-inactive';
     }
-    $box_class =  sassico_option('general_body_box_layout');
-    if(isset($box_class['style'])){
-        if($box_class['style']=='yes'){
-         $classes[] = 'body-box-layout';
-        }
-    }
- 
+
     return $classes;
  }
- 
+
  add_filter( 'body_class','sassico_body_classes' );
