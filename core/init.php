@@ -93,7 +93,7 @@ class sassico_Theme_Includes {
         self::include_isolated( '/hooks/custom-fonts.php' );
 
         // gogole font
-        self::include_isolated( '/hooks/unyson-google-fonts.php' );
+        self::include_isolated( '/hooks/dm-google-fonts.php' );
 
         // register widget areas
         self::include_isolated( '/hooks/widget-areas.php' );

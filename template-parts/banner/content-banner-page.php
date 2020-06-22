@@ -64,7 +64,7 @@ if ($banner_image != '') {
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="xs-jumbotron-content-wraper">
-                        <h3 class="xs-jumbotron-title">
+                        <h1 class="xs-jumbotron-title">
                             <?php
                             if (is_archive()) {
                                 the_archive_title();
@@ -74,7 +74,7 @@ if ($banner_image != '') {
                                 echo wp_kses_post($banner_title);
                             }
                             ?>
-                        </h3>
+                        </h1>
                         <?php if (isset($show_breadcrumb) && $show_breadcrumb == 'yes') : ?>
                             <?php sassico_get_breadcrumbs(" / "); ?>
                         <?php endif; ?>

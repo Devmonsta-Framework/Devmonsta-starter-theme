@@ -337,18 +337,18 @@ if ( !function_exists( 'sassico_advanced_font_styles' ) ) :
 	 *
 	 */
 	function sassico_advanced_font_styles( $style ) {
+		$style = json_decode($style, true);
 
 		$font_styles = $font_weight = '';
 
-		$font_weight = (isset( $style[ 'font-weight' ] ) && $style[ 'font-weight' ]) ? 'font-weight:' . esc_attr( $style[ 'font-weight' ] ) . ';' : '';
-		$font_weight = (isset( $style[ 'variation' ] ) && $style[ 'variation' ]) ? 'font-weight:' . esc_attr( $style[ 'variation' ] ) . ';' : $font_weight;
+		$font_weight = (isset( $style[ 'weight' ] ) && $style[ 'weight' ]) ? 'font-weight:' . esc_attr( $style[ 'weight' ] ) . ';' : '';
 
 		$font_styles .= isset( $style[ 'family' ] ) ? 'font-family:"' . $style[ 'family' ] . '";' : '';
 		$font_styles .= isset($style[ 'style' ] ) && $style[ 'style' ] ? 'font-style:' . esc_attr( $style[ 'style' ] ) . ';' : '';
 
 		$font_styles .= isset( $style[ 'color' ] ) && !empty( $style[ 'color' ] ) ? 'color:' . esc_attr( $style[ 'color' ] ) . ';' : '';
-		$font_styles .= isset( $style[ 'line-height' ] ) && !empty( $style[ 'line-height' ] ) ? 'line-height:' . esc_attr( $style[ 'line-height' ] ) . 'px;' : '';
-		$font_styles .= isset( $style[ 'letter-spacing' ] ) && !empty( $style[ 'letter-spacing' ] ) ? 'letter-spacing:' . esc_attr( $style[ 'letter-spacing' ] ) . 'px;' : '';
+		$font_styles .= isset( $style[ 'line_height' ] ) && !empty( $style[ 'line_height' ] ) ? 'line-height:' . esc_attr( $style[ 'line_height' ] / $style[ 'size' ]) . ';' : '';
+		$font_styles .= isset( $style[ 'letter_spacing' ] ) && !empty( $style[ 'letter_spacing' ] ) ? 'letter-spacing:' . esc_attr( $style[ 'letter_spacing' ] / 1000 * 1 ) . 'rem;' : '';
 		$font_styles .= isset( $style[ 'size' ] ) && !empty( $style[ 'size' ] ) ? 'font-size:' . esc_attr( $style[ 'size' ] ) . 'px;' : '';
 
 		$font_styles .= !empty( $font_weight ) ? $font_weight : '';

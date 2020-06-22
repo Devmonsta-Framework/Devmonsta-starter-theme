@@ -3,7 +3,7 @@
  * hooks for adding google fonts
  */
 
-class Sassico_Unyson_Google_Fonts {
+class Sassico_DM_Google_Fonts {
 
 	static private $data = array(
 		'subset' => array(),
@@ -11,9 +11,10 @@ class Sassico_Unyson_Google_Fonts {
 	);
 
 	public static function add_typography_v2( $value ) {
-		if ( in_array( isset( $value[ 'google_font' ] ), array( true, 'true' ), true ) ) {
-			self::$data[ 'family' ][ $value[ 'family' ] ][ 'variants' ][ (string) $value[ 'variation' ] ]	 = true;
-			self::$data[ 'subset' ][ $value[ 'subset' ] ]													 = true;
+		$json_decode = json_decode($value, true);
+		if ( in_array( isset( $json_decode[ 'family' ] ), array( true, 'true' ), true ) ) {
+			self::$data[ 'family' ][ $json_decode[ 'family' ] ][ 'variants' ][ (string) $json_decode[ 'variation' ] ] = true;
+			self::$data[ 'subset' ][ $json_decode[ 'subset' ] ] = true;
 		}
 	}
 
@@ -32,6 +33,7 @@ class Sassico_Unyson_Google_Fonts {
 		 * subset=cyrillic-ext,greek,vietnamese
 		 * " rel="stylesheet">
 		 */
+
 		if ( empty( self::$data[ 'family' ] ) ) {
 			return false;
 		}
@@ -59,4 +61,4 @@ class Sassico_Unyson_Google_Fonts {
 	}
 
 }
-add_action( 'wp_enqueue_scripts', array( 'Sassico_Unyson_Google_Fonts', 'output_url' ), 9999 );
+add_action( 'wp_enqueue_scripts', array( 'Sassico_DM_Google_Fonts', 'output_url' ), 9999 );
