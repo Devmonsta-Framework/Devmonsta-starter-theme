@@ -46,32 +46,32 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'desc'   => esc_html__("It's the main logo, mostly it will be shown on dark or coloreful type area.
             ", 'sassico'),
         ]);
-        $this->add_control([
-            'id'              => 'general_social_links',
-            'label'           => esc_html__('Social Links', 'sassico'),
-            'type'            => 'repeater',
-            'section'         => 'general_settings_section',
-            'add_button_text' => esc_html__('Add new Social', 'sassico'),
-            'fields'          => [
-                [
-                    'id'    => 'title',
-                    'label' => esc_html__('Title', 'sassico'),
-                    'type'  => 'text',
-                ],
+        // $this->add_control([
+        //     'id'              => 'general_social_links',
+        //     'label'           => esc_html__('Social Links', 'sassico'),
+        //     'type'            => 'repeater',
+        //     'section'         => 'general_settings_section',
+        //     'add_button_text' => esc_html__('Add new Social', 'sassico'),
+        //     'fields'          => [
+        //         [
+        //             'id'    => 'title',
+        //             'label' => esc_html__('Title', 'sassico'),
+        //             'type'  => 'text',
+        //         ],
 
-                [
-                    'id'    => 'icon_class',
-                    'label' => esc_html__('Social icon', 'sassico'),
-                    'type'  => 'icon',
-                ],
-                [
-                    'id'    => 'url',
-                    'label' => esc_html__('Social Link', 'sassico'),
-                    'type'  => 'text',
-                ],
+        //         [
+        //             'id'    => 'icon_class',
+        //             'label' => esc_html__('Social icon', 'sassico'),
+        //             'type'  => 'icon',
+        //         ],
+        //         [
+        //             'id'    => 'url',
+        //             'label' => esc_html__('Social Link', 'sassico'),
+        //             'type'  => 'text',
+        //         ],
 
-            ],
-        ]);
+        //     ],
+        // ]);
 
         /**
          * Header settings here
@@ -107,18 +107,8 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'value'   => '1',
             'label' => esc_html__('Header', 'sassico'),
             'section' => 'xs_header_settings_section',
-            'choices' => sassico_ekit_headers(),
+            // 'choices' => arr(),
         ]);
-
-        // dm_print(sassico_ekit_headers());
-        error_log(serialize(sassico_ekit_headers()));
-
-        // $this->add_control([
-        //     'id'      => 'header_builder_control_enable_html',
-        //     'section' => 'xs_header_settings_section',
-        //     'type'    => 'html',
-        //     'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href='. admin_url( 'post.php?action=elementor&post='.$header_id ). '>'. esc_html('Edit content here.'). '</a><h2><h3><a style="text-transform: uppercase; color:#17a2b8" target="_blank" href="https://support.xpeedstudio.com/knowledgebase/customize-beauty-press-header-builder/">'. esc_html('How to edit header'). '</a><h3>',
-        // ]);
 
         $this->add_control([
             'id'      => 'header_contact_mail',
@@ -697,32 +687,32 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'label'       =>  esc_html__('Copyright text', 'sassico'),
             'desc'        =>  esc_html__('This text will be shown at the footer of all pages.', 'sassico'),
         ]);
-        $this->add_control([
-            'id'              => 'footer_social_links',
-            'label'           => esc_html__('Social Links', 'sassico'),
-            'type'            => 'repeater',
-            'section'         => 'footer_settings_section',
-            'add_button_text' => esc_html__('Add new Social', 'sassico'),
-            'fields'          => [
-                [
-                    'id'    => 'title',
-                    'label' => esc_html__('Title', 'sassico'),
-                    'type'  => 'text',
-                ],
+        // $this->add_control([
+        //     'id'              => 'footer_social_links',
+        //     'label'           => esc_html__('Social Links', 'sassico'),
+        //     'type'            => 'repeater',
+        //     'section'         => 'footer_settings_section',
+        //     'add_button_text' => esc_html__('Add new Social', 'sassico'),
+        //     'fields'          => [
+        //         [
+        //             'id'    => 'title',
+        //             'label' => esc_html__('Title', 'sassico'),
+        //             'type'  => 'text',
+        //         ],
 
-                [
-                    'id'    => 'icon_class',
-                    'label' => esc_html__('Social icon', 'sassico'),
-                    'type'  => 'icon',
-                ],
-                [
-                    'id'    => 'url',
-                    'label' => esc_html__('Social Link', 'sassico'),
-                    'type'  => 'text',
-                ],
+        //         [
+        //             'id'    => 'icon_class',
+        //             'label' => esc_html__('Social icon', 'sassico'),
+        //             'type'  => 'icon',
+        //         ],
+        //         [
+        //             'id'    => 'url',
+        //             'label' => esc_html__('Social Link', 'sassico'),
+        //             'type'  => 'text',
+        //         ],
 
-            ],
-        ]);
+        //     ],
+        // ]);
 
         $this->add_control([
             'id'        => 'footer_padding_top',
@@ -1310,139 +1300,139 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'type'        => 'html-editor',
         ]);
 
-        $this->add_control([
-            'id'              => 'devmonsta_repeater_control',
-            'label'           => 'List',
-            'type'            => 'repeater',
-            'section'         => 'dm_repeater_section',
-            'add_button_text' => __('Add new', 'sassico'),
-            'fields'          => [
-                [
-                    'id'    => 'person_name',
-                    'label' => __('Name', 'sassico'),
-                    'type'  => 'text',
-                ],
-                [
-                    'id'    => 'person_email',
-                    'label' => __('Email', 'sassico'),
-                    'type'  => 'email',
-                ],
-                [
-                    'id'    => 'person_birht_date',
-                    'label' => __('Date of birth', 'sassico'),
-                    'type'  => 'date',
-                ],
+        // $this->add_control([
+        //     'id'              => 'devmonsta_repeater_control',
+        //     'label'           => 'List',
+        //     'type'            => 'repeater',
+        //     'section'         => 'dm_repeater_section',
+        //     'add_button_text' => __('Add new', 'sassico'),
+        //     'fields'          => [
+        //         [
+        //             'id'    => 'person_name',
+        //             'label' => __('Name', 'sassico'),
+        //             'type'  => 'text',
+        //         ],
+        //         [
+        //             'id'    => 'person_email',
+        //             'label' => __('Email', 'sassico'),
+        //             'type'  => 'email',
+        //         ],
+        //         [
+        //             'id'    => 'person_birht_date',
+        //             'label' => __('Date of birth', 'sassico'),
+        //             'type'  => 'date',
+        //         ],
 
-                [
-                    'id'    => 'person_child',
-                    'label' => __('Child', 'sassico'),
-                    'type'  => 'number',
-                ],
-                [
-                    'id'    => 'person_color',
-                    'label' => __('Awesome Color', 'sassico'),
-                    'type'  => 'color',
-                ],
-                [
-                    'id'    => 'person_hair_color',
-                    'label' => __('Hair Color', 'sassico'),
-                    'type'  => 'color',
-                ],
-                [
-                    'id'    => 'person_image',
-                    'type'  => 'media',
+        //         [
+        //             'id'    => 'person_child',
+        //             'label' => __('Child', 'sassico'),
+        //             'type'  => 'number',
+        //         ],
+        //         [
+        //             'id'    => 'person_color',
+        //             'label' => __('Awesome Color', 'sassico'),
+        //             'type'  => 'color',
+        //         ],
+        //         [
+        //             'id'    => 'person_hair_color',
+        //             'label' => __('Hair Color', 'sassico'),
+        //             'type'  => 'color',
+        //         ],
+        //         [
+        //             'id'    => 'person_image',
+        //             'type'  => 'media',
 
-                    'label' => __('Media'),
+        //             'label' => __('Media'),
 
-                ],
-                [
-                    'id'          => 'dm_sum_test_control_kk',
-                    'type'        => 'test-control',
-                    'section'     => 'devmonsta_text_settings_section', // Add a default or your own section
-                    'label'       => __('Custom Dropdown Pages'),
-                    'description' => __('This is a custom dropdown pages option.'),
-                ],
-                [
-                    'type'        => 'radio',
-                    'id'          => 'dm_test_readio_for_repeater',
-                    'label'       => __('Custom Radio Selection'),
-                    'description' => __('This is a custom radio input.'),
-                    'choices'     => [
-                        'red'   => __('Red'),
-                        'blue'  => __('Blue'),
-                        'green' => __('Green'),
-                    ],
-                ],
+        //         ],
+        //         [
+        //             'id'          => 'dm_sum_test_control_kk',
+        //             'type'        => 'test-control',
+        //             'section'     => 'devmonsta_text_settings_section', // Add a default or your own section
+        //             'label'       => __('Custom Dropdown Pages'),
+        //             'description' => __('This is a custom dropdown pages option.'),
+        //         ],
+        //         [
+        //             'type'        => 'radio',
+        //             'id'          => 'dm_test_readio_for_repeater',
+        //             'label'       => __('Custom Radio Selection'),
+        //             'description' => __('This is a custom radio input.'),
+        //             'choices'     => [
+        //                 'red'   => __('Red'),
+        //                 'blue'  => __('Blue'),
+        //                 'green' => __('Green'),
+        //             ],
+        //         ],
 
-            ],
-        ]);
+        //     ],
+        // ]);
 
-        $this->add_control([
-            'id'              => 'devmonsta_repeater_popup_control',
-            'label'           => 'Popup',
-            'type'            => 'addable-popup',
-            'section'         => 'dm_repeater_section',
-            'add_button_text' => __('Add new', 'sassico'),
-            'fields'          => [
-                [
-                    'id'    => 'person_name_popup',
-                    'label' => __('Name', 'sassico'),
-                    'type'  => 'text',
-                ],
-                [
-                    'id'    => 'person_email_popup',
-                    'label' => __('Email', 'sassico'),
-                    'type'  => 'email',
-                ],
-                [
-                    'id'    => 'person_birht_date_popup',
-                    'label' => __('Date of birth', 'sassico'),
-                    'type'  => 'date',
-                ],
+        // $this->add_control([
+        //     'id'              => 'devmonsta_repeater_popup_control',
+        //     'label'           => 'Popup',
+        //     'type'            => 'addable-popup',
+        //     'section'         => 'dm_repeater_section',
+        //     'add_button_text' => __('Add new', 'sassico'),
+        //     'fields'          => [
+        //         [
+        //             'id'    => 'person_name_popup',
+        //             'label' => __('Name', 'sassico'),
+        //             'type'  => 'text',
+        //         ],
+        //         [
+        //             'id'    => 'person_email_popup',
+        //             'label' => __('Email', 'sassico'),
+        //             'type'  => 'email',
+        //         ],
+        //         [
+        //             'id'    => 'person_birht_date_popup',
+        //             'label' => __('Date of birth', 'sassico'),
+        //             'type'  => 'date',
+        //         ],
 
-                [
-                    'id'    => 'person_child_popup',
-                    'label' => __('Child', 'sassico'),
-                    'type'  => 'number',
-                ],
-                [
-                    'id'    => 'person_color_popup',
-                    'label' => __('Awesome Color', 'sassico'),
-                    'type'  => 'color',
-                ],
-                [
-                    'id'    => 'person_hair_color_popup',
-                    'label' => __('Hair Color', 'sassico'),
-                    'type'  => 'color',
-                ],
-                [
-                    'id'    => 'person_image_popup',
-                    'type'  => 'media',
+        //         [
+        //             'id'    => 'person_child_popup',
+        //             'label' => __('Child', 'sassico'),
+        //             'type'  => 'number',
+        //         ],
+        //         [
+        //             'id'    => 'person_color_popup',
+        //             'label' => __('Awesome Color', 'sassico'),
+        //             'type'  => 'color',
+        //         ],
+        //         [
+        //             'id'    => 'person_hair_color_popup',
+        //             'label' => __('Hair Color', 'sassico'),
+        //             'type'  => 'color',
+        //         ],
+        //         [
+        //             'id'    => 'person_image_popup',
+        //             'type'  => 'media',
 
-                    'label' => __('Media'),
+        //             'label' => __('Media'),
 
-                ],
-                [
-                    'id'          => 'dm_sum_test_control_kk_popup',
-                    'type'        => 'test-control',
-                    'section'     => 'devmonsta_text_settings_section', // Add a default or your own section
-                    'label'       => __('Custom Dropdown Pages'),
-                    'description' => __('This is a custom dropdown pages option.'),
-                ],
-                [
-                    'type'        => 'radio',
-                    'id'          => 'dm_test_readio_for_repeater_popup',
-                    'label'       => __('Custom Radio Selection'),
-                    'description' => __('This is a custom radio input.'),
-                    'choices'     => [
-                        'red'   => __('Red'),
-                        'blue'  => __('Blue'),
-                        'green' => __('Green'),
-                    ],
-                ],
+        //         ],
+        //         [
+        //             'id'          => 'dm_sum_test_control_kk_popup',
+        //             'type'        => 'test-control',
+        //             'section'     => 'devmonsta_text_settings_section', // Add a default or your own section
+        //             'label'       => __('Custom Dropdown Pages'),
+        //             'description' => __('This is a custom dropdown pages option.'),
+        //         ],
+        //         [
+        //             'type'        => 'radio',
+        //             'id'          => 'dm_test_readio_for_repeater_popup',
+        //             'label'       => __('Custom Radio Selection'),
+        //             'description' => __('This is a custom radio input.'),
+        //             'choices'     => [
+        //                 'red'   => __('Red'),
+        //                 'blue'  => __('Blue'),
+        //                 'green' => __('Green'),
+        //             ],
+        //         ],
 
-            ],
-        ]);
+        //     ],
+        // ]);
 
         $this->add_tab([
             'id'      => 'first_tab',

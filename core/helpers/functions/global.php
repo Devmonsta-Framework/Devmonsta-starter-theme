@@ -434,10 +434,7 @@ function sassico_ekit_headers($format='html'){
     return [];
 }
 
-dm_print(sassico_ekit_headers());
-
 function sassico_ekit_footers($format='html'){
-
     if(class_exists('ElementsKit')){
         $select = [];
         $args = array(
@@ -457,8 +454,6 @@ function sassico_ekit_footers($format='html'){
 }
 
 function sassico_ekit_headers_activate(){
-
     $header_settings = sassico_option('header_builder_enable');
     var_dump($header_settings);
-
 }
