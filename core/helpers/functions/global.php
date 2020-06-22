@@ -75,11 +75,11 @@ function sassico_src( $key, $default_value = '', $input_as_attachment = false ) 
 	if ( $input_as_attachment == true ) {
 		$attachment = $key;
 	} else {
-		$attachment = sassico_option( $key );
+		$attachment = wp_get_attachment_image_url(sassico_option( $key ), 'full');
 	}
 
-	if ( isset( $attachment[ 'url' ] ) && !empty( $attachment ) ) {
-		return $attachment[ 'url' ];
+	if ( isset( $attachment ) && !empty( $attachment ) ) {
+		return $attachment;
 	}
 
 	return $default_value;

@@ -33,6 +33,16 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'type'    => 'media',
             'section' => 'general_settings_section',
             'label'   => esc_html__('Main Logo', 'sassico'),
+            'desc'   => esc_html__("It's the main logo, mostly it will be shown on dark or coloreful type area.
+            ", 'sassico'),
+        ]);
+        $this->add_control([
+            'id'      => 'general_Light_logo',
+            'type'    => 'media',
+            'section' => 'general_settings_section',
+            'label'   => esc_html__('Light Logo', 'sassico'),
+            'desc'   => esc_html__("It's the main logo, mostly it will be shown on dark or coloreful type area.
+            ", 'sassico'),
         ]);
         $this->add_control([
             'id'              => 'general_social_links',
@@ -578,28 +588,127 @@ class Customizer extends \Devmonsta\Libs\Customizer
 
 
         /**
-         * test controls
+         * Footer Settings here
          */
         $this->add_section([
-            'id'       => 'devmonsta_text_settings_section',
-            'title'    => __('Text settings', 'sassico'),
+            'id'       => 'footer_settings_section',
+            'title'    => esc_html__('Footer settings', 'sassico'),
             'panel'    => 'xs_theme_option_panel',
             'priority' => 10,
+        ]);
+        $this->add_control([
+            'id'       => 'xs_footer_bg_color',
+            'label'    => esc_html__('Background color', 'sassico'),
+            'type'     => 'color',
+            'section'  => 'footer_settings_section',
+            'default'  => '#042ff8',
+            'desc'     => esc_html__('description of rgba-color-picker goes here', 'sassico'),
+
         ]);
 
-        $this->add_section([
-            'id'       => 'dm_repeater_section',
-            'title'    => 'Devmonsta repeater section',
-            'panel'    => 'xs_theme_option_panel',
-            'priority' => 10,
+        $this->add_control([
+            'id'      => 'xs_footer_text_color',
+            'label'   => esc_html__('Text color', 'sassico'),
+            'type'    => 'color',
+            'section' => 'footer_settings_section',
+            'default' => '#666',
+            'desc'    => esc_html__('You can change the text color with rgba color or solid color', 'sassico'),
+
+        ]);
+        $this->add_control([
+            'id'         => 'xs_footer_link_color',
+            'label'      => esc_html__('Link Color', 'sassico'),
+            'type'       => 'color',
+            'section'    => 'footer_settings_section',
+            'default'    => '#666',
+            'desc'       => esc_html__('You can change the text color with rgba color or solid color', 'sassico'),
+
+        ]);
+        $this->add_control([
+            'id'        => 'xs_footer_widget_title_color',
+            'label'     => esc_html__('Widget Title Color', 'sassico'),
+            'type'      => 'color',
+            'section'   => 'footer_settings_section',
+            'default'   => '#142355',
+            'desc'      => esc_html__('You can change the text color with rgba color or solid color', 'sassico'),
+
+        ]);
+        $this->add_control([
+            'id'        => 'copyright_bg_color',
+            'label'     => esc_html__('Copyright Background Color', 'sassico'),
+            'type'      => 'color',
+            'section'   => 'footer_settings_section',
+            'default'   => '#142355',
+            'desc'      => esc_html__('You can change the copyright background color with rgba color or solid color', 'sassico'),
+
+        ]);
+        $this->add_control([
+            'id'        => 'footer_copyright_color',
+            'label'     => esc_html__('Copyright Text Color', 'sassico'),
+            'type'      => 'color',
+            'section'   => 'footer_settings_section',
+            'desc'      => esc_html__('You can change the copyright background color with rgba color or solid color', 'sassico'),
+
+        ]);
+        $this->add_control([
+            'id'          => 'footer_copyright',
+            'type'        => 'textarea',
+            'section'     => 'footer_settings_section',
+            'value'       =>  esc_html__('&copy; 2019, Sassico. All rights reserved', 'sassico'),
+            'label'       =>  esc_html__('Copyright text', 'sassico'),
+            'desc'        =>  esc_html__('This text will be shown at the footer of all pages.', 'sassico'),
+        ]);
+        $this->add_control([
+            'id'      => 'footer_padding',
+            'section' => 'footer_settings_section',
+            'type'    => 'dimensions',
+            'label'   =>  esc_html__('Footer Padding', 'sassico'),
+            'value'   => [
+                'top'      => '20',
+                'right'    => '0',
+                'bottom'   => '20',
+                'left'     => '0',
+                'isLinked' => true,
+            ],
+        ]);
+        $this->add_control([
+            'id'      => 'back_to_top',
+            'type'    => 'switcher',
+            'default' => 'no',
+            'label'   => esc_html__('Back to top', 'sassico'),
+            'section' => 'footer_settings_section',
+            'left-choice'  => [
+                'no' => esc_html__('No', 'sassico'),
+            ],
+            'right-choice' => [
+                'yes' => esc_html__('Yes', 'sassico'),
+            ],
         ]);
 
-        $this->add_section([
-            'id'       => 'dm_new_controls',
-            'title'    => 'New controls',
-            'panel'    => 'xs_theme_option_panel',
-            'priority' => 10,
-        ]);
+
+        /**
+         * test controls
+         */
+        // $this->add_section([
+        //     'id'       => 'devmonsta_text_settings_section',
+        //     'title'    => __('Text settings', 'sassico'),
+        //     'panel'    => 'xs_theme_option_panel',
+        //     'priority' => 10,
+        // ]);
+
+        // $this->add_section([
+        //     'id'       => 'dm_repeater_section',
+        //     'title'    => 'Devmonsta repeater section',
+        //     'panel'    => 'xs_theme_option_panel',
+        //     'priority' => 10,
+        // ]);
+
+        // $this->add_section([
+        //     'id'       => 'dm_new_controls',
+        //     'title'    => 'New controls',
+        //     'panel'    => 'xs_theme_option_panel',
+        //     'priority' => 10,
+        // ]);
 
 
 
