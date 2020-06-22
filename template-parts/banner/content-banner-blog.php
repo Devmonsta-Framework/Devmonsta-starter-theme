@@ -1,77 +1,82 @@
 <?php
-   $banner_image    =  '';
-   $banner_title    = '';
-   $header_style    = 'standard';
+$banner_image    = '';
+$banner_title    = '';
+$banner_style    = 'full';
+$header_style    = 'standard';
 
-if ( defined( 'DMS' ) ) {
-   $banner_settings         = sassico_option('blog_banner_setting');
-   $banner_style            = sassico_option('sub_page_banner_style');
-   $header_style            = sassico_option('header_layout_style', 'standard');
+if (defined('DM')) {
 
-   $banner_overlay           = $banner_settings['blog_show_background_overlay_switch'];
+    // page meta options
+    $page_banner_title        = sassico_meta_option(get_the_ID(), 'header_title');
+    $banner_image             = sassico_meta_option(get_the_ID(), 'header_image');
+    // customizer options
+    $page_show_banner         = sassico_option('page_show_banner');
+    $page_show_breadcrumb     = sassico_option('page_show_breadcrumb');
+    $banner_page_image        = sassico_option('banner_page_image');
+    $banner_overlay_show      = sassico_option('show_page_banner_overlay');
+    $page_banner_overlay_color = sassico_option('page_banner_overlay_color');
 
-   //image
-   $banner_image = ( is_array($banner_settings['banner_blog_image']) && $banner_settings['banner_blog_image']['url'] != '') ?
-                        $banner_settings['banner_blog_image']['url'] : SASSICO_IMG.'/banner/bredcumbs-1.png';
+    //title
+    if ($page_banner_title != '') {
+        $banner_title = $page_banner_title;
+    } elseif (sassico_option('page_banner_title') != '') {
+        $banner_title = sassico_option('page_banner_title');
+    } else {
+        $banner_title   = get_the_title();
+    }
 
-   //title
-   $banner_title = (isset($banner_settings['banner_blog_title']) && $banner_settings['banner_blog_title'] != '') ?
-                        $banner_settings['banner_blog_title'] : get_bloginfo( 'name' );
-   //show
-   $show = (isset($banner_settings['blog_show_banner'])) ? $banner_settings['blog_show_banner'] : 'yes';
-   // banner overlay
-   $show = (isset($banner_settings['blog_show_banner'])) ? $banner_settings['blog_show_banner'] : 'yes';
+    //image
+    if (isset($banner_image) && $banner_image != '') {
+        $banner_image = wp_get_attachment_url($banner_image);
+    } elseif (isset($banner_page_image) && $banner_page_image != '') {
+        $banner_image = wp_get_attachment_url($banner_page_image);
+    } else {
+        $banner_image = SASSICO_IMG . '/banner/bredcumbs-1.png';
+    }
 
-   //breadcumb
-   $show_breadcrumb =  (isset($banner_settings['blog_show_breadcrumb'])) ? $banner_settings['blog_show_breadcrumb'] : 'yes';
-
- }else{
-     //default
-   $banner_image             = SASSICO_IMG.'/banner/bredcumbs-1.png';
-   $banner_title             = get_bloginfo( 'name' );
-   $show                     = 'yes';
-   $show_breadcrumb          = 'yes';
- }
- if( isset($banner_image) && $banner_image != ''){
-    $banner_image = 'style="background-image:url('.esc_url( $banner_image ).');"';
+    // show banner
+    $show = (isset($page_show_banner)) ? $page_show_banner : 'yes';
+    // breadcumb
+    $show_breadcrumb =  (isset($page_show_breadcrumb)) ? $page_show_breadcrumb : 'yes';
+} else {
+    //default
+    $banner_image             = SASSICO_IMG . '/banner/bredcumbs-1.png';
+    $banner_title             = get_the_title();
+    $show                     = 'yes';
+    $show_breadcrumb          = 'no';
+    $banner_overlay_show      = 'no';
 }
-$banner_heading_class = '';
-if($header_style=="transparent"){
-   $banner_heading_class     = "mt-80";
-};
-$wraper_class = 'xs-jumbotron d-flex align-items-center ';
-if (is_single() || is_search() || is_home()) {
-    $wraper_class .= ' xs_single_blog_banner ';
+if ($banner_image != '') {
+    $banner_image = 'style="background-image:url(' . esc_url($banner_image) . ');"';
 }
+
 
 ?>
 
-<?php if(isset($show) && $show == 'yes'): ?>
+<?php if (isset($show) && $show == 'yes') : ?>
 
-    <section class="<?php echo esc_attr($wraper_class); echo esc_attr($banner_image == '' ?' banner-solid':' banner-bg'); ?>" <?php echo wp_kses_post( $banner_image ); ?>>
-        <?php if ($banner_overlay === 'yes') {
-            $banner_overlay_color = $banner_settings['blog_show_background_overlay']['yes']['blog_banner_overlay_style'];
-            ?>
-        <div class="xs-solid-overlay" style="background-color: <?php echo esc_attr($banner_overlay_color === '' ? 'rgba(0,0,0,.5)' : $banner_overlay_color); ?>"></div>
+    <section class="xs-jumbotron sassico-innner-page-banner d-flex align-items-center <?php echo esc_attr($banner_image == '' ? 'banner-solid' : 'banner-bg'); ?>" <?php echo wp_kses_post($banner_image); ?>>
+        <?php if ($banner_overlay_show === 'yes') { ?>
+            <div class="xs-solid-overlay" style="background-color: <?php echo esc_attr($page_banner_overlay_color === '' ? 'rgba(0,0,0,.5)' : $page_banner_overlay_color); ?>"></div>
         <?php }; ?>
+
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="xs-jumbotron-content-wraper">
                         <h1 class="xs-jumbotron-title">
                             <?php
-                            if(is_archive()){
+                            if (is_archive()) {
                                 the_archive_title();
-                            }elseif(is_single()){
+                            } elseif (is_single()) {
                                 the_title();
-                            }else {
-                                echo esc_html($banner_title);
+                            } else {
+                                echo wp_kses_post($banner_title);
                             }
                             ?>
                         </h1>
-
-                        <?php if(isset($show_breadcrumb) && $show_breadcrumb == 'yes'): ?>
-                            <?php sassico_get_breadcrumbs(" > "); ?>
+                        <?php if (isset($show_breadcrumb) && $show_breadcrumb == 'yes') : ?>
+                            <?php sassico_get_breadcrumbs(" / "); ?>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -79,4 +84,7 @@ if (is_single() || is_search() || is_home()) {
         </div>
     </section>
 
-<?php endif; ?>
+
+<?php endif;
+
+
