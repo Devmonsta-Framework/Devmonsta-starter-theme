@@ -13,8 +13,8 @@ if (defined('DM')) {
     $page_show_banner         = sassico_option('page_show_banner');
     $page_show_breadcrumb     = sassico_option('page_show_breadcrumb');
     $banner_page_image        = sassico_option('banner_page_image');
-    $banner_overlay_show      = sassico_setup('show_page_banner_overlay');
-    $page_banner_overlay_color = sassico_setup('page_banner_overlay_color');
+    $banner_overlay_show      = sassico_option('show_page_banner_overlay');
+    $page_banner_overlay_color = sassico_option('page_banner_overlay_color');
 
     //title
     if ($page_banner_title != '') {

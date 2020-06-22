@@ -19,11 +19,54 @@ class Customizer extends \Devmonsta\Libs\Customizer
 
 
         /**
+         * General settings here
+         */
+        $this->add_section([
+            'id'       => 'general_settings_section',
+            'title'    => __('General Settings', 'sassico'),
+            'panel'    => 'xs_theme_option_panel',
+            'priority' => 10,
+        ]);
+
+        $this->add_control([
+            'id'      => 'general_main_logo',
+            'type'    => 'media',
+            'section' => 'general_settings_section',
+            'label'   => esc_html__('Main Logo', 'sassico'),
+        ]);
+        $this->add_control([
+            'id'              => 'general_social_links',
+            'label'           => esc_html__('Social Links', 'sassico'),
+            'type'            => 'repeater',
+            'section'         => 'general_settings_section',
+            'add_button_text' => esc_html__('Add new Social', 'sassico'),
+            'fields'          => [
+                [
+                    'id'    => 'title',
+                    'label' => esc_html__('Title', 'sassico'),
+                    'type'  => 'text',
+                ],
+
+                [
+                    'id'    => 'icon_class',
+                    'label' => esc_html__('Social icon', 'sassico'),
+                    'type'  => 'icon',
+                ],
+                [
+                    'id'    => 'url',
+                    'label' => esc_html__('Social Link', 'sassico'),
+                    'type'  => 'text',
+                ],
+
+            ],
+        ]);
+
+        /**
          * Header settings here
          */
         $this->add_section([
             'id'       => 'xs_header_settings_section',
-            'title'    => __('Header Control', 'sassico'),
+            'title'    => __('Header Settings', 'sassico'),
             'panel'    => 'xs_theme_option_panel',
             'priority' => 10,
         ]);
@@ -46,10 +89,10 @@ class Customizer extends \Devmonsta\Libs\Customizer
 
         $this->add_control([
             'id'      => 'header_contact_address_url',
-            'type'	  => 'url',
-            'label'	  => esc_html__( 'Address link', 'sassico' ),
-            'desc'	  => esc_html__( 'Navigation address link.', 'sassico' ),
-            'default' => esc_url( '#' ),
+            'type'      => 'url',
+            'label'      => esc_html__('Address link', 'sassico'),
+            'desc'      => esc_html__('Navigation address link.', 'sassico'),
+            'default' => esc_url('#'),
             'section' => 'xs_header_settings_section',
         ]);
 
@@ -178,6 +221,9 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'priority' => 10,
         ]);
 
+        /**
+         * body background control
+         */
 
         $this->add_control([
             'id'      => 'page_show_banner',
@@ -226,7 +272,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_control([
             'id'      => 'show_page_banner_overlay',
             'type'    => 'switcher',
-            'default' => 'right-choice',
+            'default' => 'yes',
             'label'   => esc_html__('Show background overlay', 'sassico'),
             'section' => 'banner_settings_section',
             'left-choice'  => [
@@ -243,6 +289,13 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'section'  => 'banner_settings_section',
             'type'     => 'rgba-color-picker',
             'label'    => esc_html__('Banner Overlay Color', 'sassico'),
+            'conditions' => [
+                [
+                    'control_name'  => 'show_page_banner_overlay',
+                    'operator' => '==',
+                    'value'    => "yes",
+                ]
+            ],
         ]);
 
         /**
@@ -258,35 +311,35 @@ class Customizer extends \Devmonsta\Libs\Customizer
         /**
          * body background control
          */
-        $this->add_control( [
+        $this->add_control([
             'id'      => 'style_body_bg',
-            'label'   => esc_html__( 'Body background', 'sassico' ),
+            'label'   => esc_html__('Body background', 'sassico'),
             'type'    => 'color',
             'section' => 'typography_settings_section',
             'default' => '#FFFFFF',
-        ] );
+        ]);
 
         /**
          * primary color control
          */
-        $this->add_control( [
+        $this->add_control([
             'id'      => 'style_primary',
-            'label'	  => esc_html__( 'Primary color', 'sassico' ),
+            'label'      => esc_html__('Primary color', 'sassico'),
             'type'    => 'color',
             'section' => 'typography_settings_section',
             'default' => '#042ff8',
-        ] );
+        ]);
 
         /**
          * secondary color control
          */
-        $this->add_control( [
+        $this->add_control([
             'id'      => 'secondary_color',
-            'label'	  => esc_html__( 'Secondary color', 'sassico' ),
+            'label'      => esc_html__('Secondary color', 'sassico'),
             'type'    => 'color',
             'section' => 'typography_settings_section',
             'default' => '#f3bc3f',
-        ] );
+        ]);
 
         /**
          * Control for body Typography Input
@@ -457,6 +510,72 @@ class Customizer extends \Devmonsta\Libs\Customizer
             ],
             'label'      => __('Heading H6 Typhography', 'sassico'),
         ]);
+
+
+        /**
+         * Blog settings here
+         */
+        $this->add_section([
+            'id'       => 'blog_settings_section',
+            'title'    => esc_html__('Blog settings', 'sassico'),
+            'panel'    => 'xs_theme_option_panel',
+            'priority' => 10,
+        ]);
+
+        /**
+         * Blog settings body controls here
+         */
+        $this->add_control([
+            'id'      => 'blog_sidebar',
+            'type'    => 'select',
+            'value'   => '1',
+            'label' => esc_html__('Sidebar', 'sassico'),
+            'section' => 'blog_settings_section',
+            'choices' => [
+                '1' => esc_html__('No sidebar', 'sassico'),
+                '2' => esc_html__('Left Sidebar', 'sassico'),
+                '3' => esc_html__('Right Sidebar', 'sassico'),
+            ],
+        ]);
+
+        $this->add_control([
+            'id'      => 'blog_author',
+            'type'    => 'switcher',
+            'default' => 'yes',
+            'label'   => esc_html__('Blog author', 'sassico'),
+            'desc'    => esc_html__('Do you want to show blog author?', 'sassico'),
+            'section' => 'blog_settings_section',
+            'left-choice'  => [
+                'no' => esc_html__('No', 'sassico'),
+            ],
+            'right-choice' => [
+                'yes' => esc_html__('Yes', 'sassico'),
+            ],
+        ]);
+
+        $this->add_control([
+            'id'      => 'blog_related_post',
+            'type'    => 'switcher',
+            'default' => 'no',
+            'label'      => esc_html__('Blog related post', 'sassico'),
+            'desc'      => esc_html__('Do you want to show single blog related post?', 'sassico'),
+            'section' => 'blog_settings_section',
+            'left-choice'  => [
+                'no' => esc_html__('No', 'sassico'),
+            ],
+            'right-choice' => [
+                'yes' => esc_html__('Yes', 'sassico'),
+            ],
+        ]);
+
+        $this->add_control([
+            'id'      => 'blog_related_post_number',
+            'type'    => 'text',
+            'label'   => esc_html__('Related post count', 'sassico'),
+            'default' => '3',
+            'section' => 'blog_settings_section',
+        ]);
+
 
         /**
          * test controls

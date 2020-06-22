@@ -18,7 +18,6 @@ $options =[
                     '1' => esc_html__('No sidebar','sassico'),
                     '2' => esc_html__('Left Sidebar', 'sassico'),
                     '3' => esc_html__('Right Sidebar', 'sassico'),
-                 
                  ),
               
                 'no-validate' => false,
