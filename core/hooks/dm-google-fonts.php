@@ -3,7 +3,7 @@
  * hooks for adding google fonts
  */
 
-class Sassico_Unyson_Google_Fonts {
+class Sassico_DM_Google_Fonts {
 
 	static private $data = array(
 		'subset' => array(),
@@ -61,4 +61,4 @@ class Sassico_Unyson_Google_Fonts {
 	}
 
 }
-add_action( 'wp_enqueue_scripts', array( 'Sassico_Unyson_Google_Fonts', 'output_url' ), 9999 );
+add_action( 'wp_enqueue_scripts', array( 'Sassico_DM_Google_Fonts', 'output_url' ), 9999 );

@@ -13,39 +13,33 @@ if ( defined( 'DM' ) ) {
     $title_color = sassico_option( 'title_color', '#172541');
     $style_primary_dark = sassico_option( 'style_primary_dark','#333');
     $secondary_color = sassico_option( 'secondary_color','#666666');
-    $page_body_box_layout = sassico_meta_option(get_the_ID(),"page_body_box_layout");
-
-    $page_override_header_item     = sassico_meta_option(get_the_ID(),'page_header_override');
-    $page_header_layout_style_item = sassico_meta_option(get_the_ID(),'page_header_layout_style');
 
     $global_body_font = sassico_option( 'body_font' );
-    Sassico_Unyson_Google_Fonts::add_typography_v2( $global_body_font );
+    Sassico_DM_Google_Fonts::add_typography_v2( $global_body_font );
     $body_font = sassico_advanced_font_styles( $global_body_font );
 
-
-
     $heading_font_one = sassico_option( 'heading_font_one' );
-    Sassico_Unyson_Google_Fonts::add_typography_v2( $heading_font_one );
+    Sassico_DM_Google_Fonts::add_typography_v2( $heading_font_one );
     $heading_font_one = sassico_advanced_font_styles( $heading_font_one );
 
     $heading_font_two = sassico_option( 'heading_font_two' );
-    Sassico_Unyson_Google_Fonts::add_typography_v2( $heading_font_two );
+    Sassico_DM_Google_Fonts::add_typography_v2( $heading_font_two );
     $heading_font_two = sassico_advanced_font_styles( $heading_font_two );
 
     $heading_font_three = sassico_option( 'heading_font_three' );
-    Sassico_Unyson_Google_Fonts::add_typography_v2( $heading_font_three );
+    Sassico_DM_Google_Fonts::add_typography_v2( $heading_font_three );
     $heading_font_three = sassico_advanced_font_styles( $heading_font_three );
 
     $heading_font_four = sassico_option( 'heading_font_four' );
-    Sassico_Unyson_Google_Fonts::add_typography_v2( $heading_font_four );
+    Sassico_DM_Google_Fonts::add_typography_v2( $heading_font_four );
     $heading_font_four = sassico_advanced_font_styles( $heading_font_four );
 
     $heading_font_five = sassico_option( 'heading_font_five' );
-    Sassico_Unyson_Google_Fonts::add_typography_v2( $heading_font_five );
+    Sassico_DM_Google_Fonts::add_typography_v2( $heading_font_five );
     $heading_font_five = sassico_advanced_font_styles( $heading_font_five );
 
     $heading_font_six = sassico_option( 'heading_font_six' );
-    Sassico_Unyson_Google_Fonts::add_typography_v2( $heading_font_six );
+    Sassico_DM_Google_Fonts::add_typography_v2( $heading_font_six );
     $heading_font_six = sassico_advanced_font_styles( $heading_font_six );
 
     // init custom css
@@ -208,12 +202,6 @@ if ( defined( 'DM' ) ) {
          $sassico_color = sassico_option('xs_footer_bg_color', '#172541');
          $footer_bg_url = 'background:'.$sassico_color;
          $footer_text_color = sassico_option('xs_footer_text_color', '#fff');
-
-
-       if($page_body_box_layout=="yes"){
-         $body_bg_url = 'background-image:url('. $general_box_bg_image_url .');';
-       }
-
 
        if($footer_padding_top!='' || $footer_padding_bottom!=''){
 
