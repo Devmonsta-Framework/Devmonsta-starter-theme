@@ -86,23 +86,3 @@ if ($banner_image != '') {
 
 
 <?php endif;
-
-if (isset($page_sub_menu) && $page_sub_menu == 'yes') :
-?>
-
-    <div class="xs-page-navigation">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <?php
-                    wp_nav_menu([
-                        'theme_location' => 'submenu',
-                        'container'     => '',
-                        'menu_class'    => 'xs-page-nav'
-                    ]); ?>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<?php endif;
