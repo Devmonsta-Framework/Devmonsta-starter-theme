@@ -659,18 +659,49 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'desc'        =>  esc_html__('This text will be shown at the footer of all pages.', 'sassico'),
         ]);
         $this->add_control([
-            'id'      => 'footer_padding',
-            'section' => 'footer_settings_section',
-            'type'    => 'dimensions',
-            'label'   =>  esc_html__('Footer Padding', 'sassico'),
-            'value'   => [
-                'top'      => '20',
-                'right'    => '0',
-                'bottom'   => '20',
-                'left'     => '0',
-                'isLinked' => true,
+            'id'              => 'footer_social_links',
+            'label'           => esc_html__('Social Links', 'sassico'),
+            'type'            => 'repeater',
+            'section'         => 'footer_settings_section',
+            'add_button_text' => esc_html__('Add new Social', 'sassico'),
+            'fields'          => [
+                [
+                    'id'    => 'title',
+                    'label' => esc_html__('Title', 'sassico'),
+                    'type'  => 'text',
+                ],
+
+                [
+                    'id'    => 'icon_class',
+                    'label' => esc_html__('Social icon', 'sassico'),
+                    'type'  => 'icon',
+                ],
+                [
+                    'id'    => 'url',
+                    'label' => esc_html__('Social Link', 'sassico'),
+                    'type'  => 'text',
+                ],
+
             ],
         ]);
+
+        $this->add_control([
+            'id'        => 'footer_padding_top',
+            'label'     => esc_html__('Footer Padding Top', 'sassico'),
+            'desc'      => esc_html__('Use Footer Padding Top', 'sassico'),
+            'type'      => 'text',
+            'section'   => 'footer_settings_section',
+            'default'   => '100px',
+        ]);
+        $this->add_control([
+            'id'        => 'footer_padding_bottom',
+            'label'	    => esc_html__( 'Footer Padding Bottom', 'sassico' ),
+            'desc'	    => esc_html__( 'Use Footer Padding Bottom', 'sassico' ),
+            'type'      => 'text',
+            'section'   => 'footer_settings_section',
+            'default'   => '100px',
+        ]);
+
         $this->add_control([
             'id'      => 'back_to_top',
             'type'    => 'switcher',
@@ -684,6 +715,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
                 'yes' => esc_html__('Yes', 'sassico'),
             ],
         ]);
+
 
 
         /**

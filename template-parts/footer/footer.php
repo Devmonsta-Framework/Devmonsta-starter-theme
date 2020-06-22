@@ -1,10 +1,8 @@
    <?php 
-      $back_to_top = sassico_option('back_to_top');
-
-     
+      $back_to_top = sassico_option('back_to_top');     
    ?> 
    
-   <?php if(defined( 'FW' )): ?>
+   <?php if(defined( 'DM' )): ?>
 
       <?php if( is_active_sidebar('footer-left') || is_active_sidebar('footer-center') || is_active_sidebar('footer-right') ): ?> 
          <footer class="xs-footer solid-bg-two xs-footer-classic" >
@@ -34,26 +32,16 @@
 
                      <div class="copyright-text">
                      <?php 
-                           $copyright_text = sassico_option('footer_copyright', 'Copyright &copy; 2019 Sassico. All Right Reserved.');
+                           $copyright_text = sassico_option('footer_copyright', 'Copyright &copy; 2020 Sassico. All Right Reserved.');
                         echo sassico_kses($copyright_text);
                      ?>
                      </div>
                </div>
                <div class="col-lg-6 col-md-5">
-               <?php if ( defined( 'FW' ) ) : ?>   
+               <?php if ( defined( 'DM' ) ) : ?>   
                      <div class="footer-social">
                         <ul class="default-footer-social-media-link">
-                        <?php 
-                           $social_links = sassico_option('footer_social_links',[]);
-                           foreach($social_links as $sl):
-                              $class = 'ts-' . str_replace('fa fa-', '', $sl['icon_class']);
-                              ?>
-                              <li class="<?php echo esc_attr($class); ?>">
-                                    <a href="<?php echo esc_url($sl['url']); ?>">
-                                    <i class="<?php echo esc_attr($sl['icon_class']); ?>"></i>
-                                    </a>
-                              </li>
-                           <?php endforeach; ?>
+                           
                         </ul>
                   <?php endif; ?>     
                      </div>

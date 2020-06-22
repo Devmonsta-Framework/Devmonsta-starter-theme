@@ -22,7 +22,7 @@ function sassico_widget_init()
 
 add_action('widgets_init', 'sassico_widget_init');
 
-if(defined('FW')) {
+if(defined('DM')) {
 
 
 function footer_right_widgets_init(){
