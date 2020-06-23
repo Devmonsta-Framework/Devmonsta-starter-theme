@@ -5,14 +5,14 @@
 
 if (defined('DM')) {
 
-    $body_bg_url = '';
+    $body_bg_url              = '';
     $general_box_bg_image_url = '';
-    $page_box_bg_image_url = '';
-    $body_bg = sassico_option('style_body_bg', '#fff');
-    $style_primary = sassico_option('style_primary', '#042ff8');
-    $title_color = sassico_option('title_color', '#172541');
-    $style_primary_dark = sassico_option('style_primary_dark', '#333');
-    $secondary_color = sassico_option('secondary_color', '#666666');
+    $page_box_bg_image_url    = '';
+    $body_bg                  = sassico_option('style_body_bg', '#fff');
+    $style_primary            = sassico_option('style_primary', '#042ff8');
+    $title_color              = sassico_option('title_color', '#172541');
+    $style_primary_dark       = sassico_option('style_primary_dark', '#333');
+    $secondary_color          = sassico_option('secondary_color', '#666666');
 
     $global_body_font = sassico_option('body_font');
     Sassico_DM_Google_Fonts::add_typography_v2($global_body_font);
@@ -50,12 +50,10 @@ if (defined('DM')) {
 
     // global style
     $output    .= "
-        body{ 
+        body{
             background-color: $body_bg;
-            $body_font 
+            $body_font;
         }
-        
-
         h1{
             $heading_font_one
         }
@@ -145,7 +143,7 @@ if (defined('DM')) {
         .sidebar .widget .widget-title:before, .pagination li.active a, .pagination li:hover a,
         .pagination li.active a:hover, .pagination li:hover a:hover,
         .sidebar .widget.widget_search .input-group-btn, .tag-lists a:hover, .tagcloud a:hover,
-        .back_to_top, .ticket-btn.btn:hover,
+        .back_to_top > a, .ticket-btn.btn:hover,
         .navbar-container .navbar-light .navbar-nav > li > a:before,
         .nav-button,
         .btn-primary,
@@ -235,15 +233,15 @@ if (defined('DM')) {
           color: $xs_footer_widget_title_color;
       }
       .xs-footer-classic p,
-      .xs-footer-classic .list-arrow li a,
-      .xs-footer-classic .menu li a,
       .xs-footer-classic .service-time li,
       .xs-footer-classic .list-arrow li::before,
-      .xs-footer-classic .menu li::before{
+      .xs-footer-classic .menu li::before {
         color: $footer_text_color;
       }
 
-      .xs-footer a{
+
+      .xs-footer ul,
+      .xs-footer ol{
         color: $xs_footer_widget_link_color;
       }
 
