@@ -415,7 +415,7 @@ if ( !function_exists( 'sassico_languages_list_wpml' ) ) :
 endif;
 
 function sassico_ekit_headers($format='html'){
-	// if(class_exists('ElementsKit')){
+	 if(class_exists('ElementsKit')){
 		$select = [];
         $args = array(
 			'posts_per_page'   => -1,
@@ -423,14 +423,16 @@ function sassico_ekit_headers($format='html'){
 			'meta_key' => 'elementskit_template_type',
 			'meta_value' => 'header'
         );
+        
         $headers = get_posts($args);
+        
         foreach($headers as $header) {
 			$select[$header->ID ] = $header->post_title;
         }
 		// var_dump($select);
         return $select;
-    // }
-    // return [];
+     }
+    return [];
 }
 
 

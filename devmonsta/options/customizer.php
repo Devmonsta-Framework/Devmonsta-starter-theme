@@ -10,7 +10,6 @@ class Customizer extends \Devmonsta\Libs\Customizer
         if($header_builder_enable=='yes'){
             $header_id =   $header_settings;
         }
-        echo $header_id;
         return $header_id;
     }
 
@@ -131,7 +130,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
                 [
                     'control_name'  => 'header_builder_control_enable',
                     'operator' => '==',
-                    'value'    => "",
+                    'value'    => "yes",
                 ]
             ],
         ]);
