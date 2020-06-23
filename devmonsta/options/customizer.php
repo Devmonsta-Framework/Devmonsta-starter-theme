@@ -2,6 +2,18 @@
 
 class Customizer extends \Devmonsta\Libs\Customizer
 {
+
+    public function builder_template_id() {
+        $header_settings = sassico_option('header_builder_select');
+        $header_id = '';
+        $header_builder_enable = sassico_option('header_builder_control_enable');
+        if($header_builder_enable=='yes'){
+            $header_id =   $header_settings;
+        }
+        echo $header_id;
+        return $header_id;
+    }
+
     public function register_controls()
     {
 
@@ -10,7 +22,6 @@ class Customizer extends \Devmonsta\Libs\Customizer
          */
 
         include_once(get_template_directory(  ) . '/core/helpers/functions/global.php');
-
         $this->add_panel([
             'id'             => 'xs_theme_option_panel',
             'priority'       => 0,
@@ -35,6 +46,8 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'type'    => 'media',
             'section' => 'general_settings_section',
             'label'   => esc_html__('Main Logo', 'sassico'),
+            'desc'   => esc_html__("It's the main logo, mostly it will be shown on dark or coloreful type area.
+            ", 'sassico'),
         ]);
         // $this->add_control([
         //     'id'              => 'general_social_links',
@@ -98,17 +111,30 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'label' => esc_html__('Header', 'sassico'),
             'section' => 'xs_header_settings_section',
             'choices' => sassico_ekit_headers(),
+            'conditions' => [
+                [
+                    'control_name'  => 'header_builder_control_enable',
+                    'operator' => '==',
+                    'value'    => "yes",
+                ]
+            ],
         ]);
 
-        // dm_print(sassico_ekit_headers());
-        error_log(serialize(sassico_ekit_headers()));
-
-        // $this->add_control([
-        //     'id'      => 'header_builder_control_enable_html',
-        //     'section' => 'xs_header_settings_section',
-        //     'type'    => 'html',
-        //     'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href='. admin_url( 'post.php?action=elementor&post='.$header_id ). '>'. esc_html('Edit content here.'). '</a><h2><h3><a style="text-transform: uppercase; color:#17a2b8" target="_blank" href="https://support.xpeedstudio.com/knowledgebase/customize-beauty-press-header-builder/">'. esc_html('How to edit header'). '</a><h3>',
-        // ]);
+        $this->add_control([
+            'id'      => 'header_builder_select_html',
+            'section' => 'xs_header_settings_section',
+            'label'   => __('Html Input', 'sassico'),
+            'desc'    => __('html description goes here', 'sassico'),
+            'type'    => 'html',
+            'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href='. admin_url( 'post.php?action=elementor&post='.$this->builder_template_id() ). '>'. esc_html('Edit content here.'). '</a><h2>',
+            'conditions' => [
+                [
+                    'control_name'  => 'header_builder_control_enable',
+                    'operator' => '==',
+                    'value'    => "",
+                ]
+            ],
+        ]);
 
         $this->add_control([
             'id'      => 'header_contact_mail',
@@ -116,6 +142,13 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'default' => esc_html__('contact@domain.com', 'sassico'),
             'label'   => __('Contact mail', 'sassico'),
             'section' => 'xs_header_settings_section',
+            'conditions' => [
+                [
+                    'control_name'  => 'header_builder_control_enable',
+                    'operator' => '==',
+                    'value'    => "",
+                ]
+            ],
         ]);
 
         $this->add_control([
@@ -616,22 +649,118 @@ class Customizer extends \Devmonsta\Libs\Customizer
         ]);
 
 
-
+        /**
+         * Footer Settings here
+         */
         $this->add_section([
-            'id'       => 'dm_new_controls',
-            'title'    => 'New controls',
+            'id'       => 'footer_settings_section',
+            'title'    => esc_html__('Footer settings', 'sassico'),
             'panel'    => 'xs_theme_option_panel',
             'priority' => 10,
         ]);
+        $this->add_control([
+            'id'       => 'xs_footer_bg_color',
+            'label'    => esc_html__('Background color', 'sassico'),
+            'type'     => 'color',
+            'section'  => 'footer_settings_section',
+            'default'  => '#042ff8',
+            'desc'     => esc_html__('description of rgba-color-picker goes here', 'sassico'),
+
+        ]);
+
+        $this->add_control([
+            'id'      => 'xs_footer_text_color',
+            'label'   => esc_html__('Text color', 'sassico'),
+            'type'    => 'color',
+            'section' => 'footer_settings_section',
+            'default' => '#666',
+            'desc'    => esc_html__('You can change the text color with rgba color or solid color', 'sassico'),
+
+        ]);
+        $this->add_control([
+            'id'         => 'xs_footer_link_color',
+            'label'      => esc_html__('Link Color', 'sassico'),
+            'type'       => 'color',
+            'section'    => 'footer_settings_section',
+            'default'    => '#666',
+            'desc'       => esc_html__('You can change the text color with rgba color or solid color', 'sassico'),
+
+        ]);
+        $this->add_control([
+            'id'        => 'xs_footer_widget_title_color',
+            'label'     => esc_html__('Widget Title Color', 'sassico'),
+            'type'      => 'color',
+            'section'   => 'footer_settings_section',
+            'default'   => '#142355',
+            'desc'      => esc_html__('You can change the text color with rgba color or solid color', 'sassico'),
+
+        ]);
+        $this->add_control([
+            'id'        => 'copyright_bg_color',
+            'label'     => esc_html__('Copyright Background Color', 'sassico'),
+            'type'      => 'color',
+            'section'   => 'footer_settings_section',
+            'default'   => '#142355',
+            'desc'      => esc_html__('You can change the copyright background color with rgba color or solid color', 'sassico'),
+
+        ]);
+        $this->add_control([
+            'id'        => 'footer_copyright_color',
+            'label'     => esc_html__('Copyright Text Color', 'sassico'),
+            'type'      => 'color',
+            'section'   => 'footer_settings_section',
+            'desc'      => esc_html__('You can change the copyright background color with rgba color or solid color', 'sassico'),
+
+        ]);
+        $this->add_control([
+            'id'          => 'footer_copyright',
+            'type'        => 'textarea',
+            'section'     => 'footer_settings_section',
+            'value'       =>  esc_html__('&copy; 2019, Sassico. All rights reserved', 'sassico'),
+            'label'       =>  esc_html__('Copyright text', 'sassico'),
+            'desc'        =>  esc_html__('This text will be shown at the footer of all pages.', 'sassico'),
+        ]);
 
 
+        $this->add_control([
+            'id'        => 'footer_padding_top',
+            'label'     => esc_html__('Footer Padding Top', 'sassico'),
+            'desc'      => esc_html__('Use Footer Padding Top', 'sassico'),
+            'type'      => 'text',
+            'section'   => 'footer_settings_section',
+            'default'   => '100px',
+        ]);
 
-        // $this->add_control([
-        //     'id'      => 'dm_accordion',
-        //     'lable'   => __('Accordion', 'sassico'),
-        //     'section' => 'dm_new_controls',
-        //     'type'    => 'toggle',
-        // ]);
+        $this->add_control([
+            'id'        => 'footer_padding_bottom',
+            'label'	    => esc_html__( 'Footer Padding Bottom', 'sassico' ),
+            'desc'	    => esc_html__( 'Use Footer Padding Bottom', 'sassico' ),
+            'type'      => 'text',
+            'section'   => 'footer_settings_section',
+            'default'   => '100px',
+        ]);
+
+        $this->add_control([
+            'id'      => 'back_to_top',
+            'type'    => 'switcher',
+            'default' => 'no',
+            'label'   => esc_html__('Back to top', 'sassico'),
+            'section' => 'footer_settings_section',
+            'left-choice'  => [
+                'no' => esc_html__('No', 'sassico'),
+            ],
+            'right-choice' => [
+                'yes' => esc_html__('Yes', 'sassico'),
+            ],
+        ]);
+
+
+        $this->add_section([
+            'id'       => 'dm_new_controls',
+            'title'    => esc_html__('Footer settings', 'sassico'),
+            'panel'    => 'xs_theme_option_panel',
+            'priority' => 10,
+        ]);
 
         $this->add_control([
             'id'      => 'dm_toggle',
@@ -640,12 +769,5 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'type'    => 'toggle',
         ]);
 
-        //  $this->add_control( [
-        //     'id'      => 'person_hair_color',
-        //     'label'   => __( 'Hair Color', 'sassico' ),
-        //     'type'    => 'color',
-        //     'section' => 'dm_new_controls',
-        //     'default' => '#eeee22',
-        // ] );
     }
 }

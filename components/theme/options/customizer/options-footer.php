@@ -61,6 +61,7 @@ $options =[
                     )
                 )
             ),
+
             'xs_footer_bg_color' => [
                 'label'	 => esc_html__( 'Background color', 'sassico'),
                 'type'	 => 'color-picker',
@@ -142,7 +143,7 @@ $options =[
              ],
              'back_to_top'				 => [
                 'type'			 => 'switch',
-                'value'			 => 'hello',
+                'value'			 => 'no',
                 'label'			 => esc_html__( 'Back to top', 'sassico'),
                 'left-choice'	 => [
                     'value'	 => 'yes',

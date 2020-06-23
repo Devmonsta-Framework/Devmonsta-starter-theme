@@ -75,11 +75,11 @@ function sassico_src( $key, $default_value = '', $input_as_attachment = false ) 
 	if ( $input_as_attachment == true ) {
 		$attachment = $key;
 	} else {
-		$attachment = sassico_option( $key );
+		$attachment = wp_get_attachment_image_url(sassico_option( $key ), 'full');
 	}
 
-	if ( isset( $attachment[ 'url' ] ) && !empty( $attachment ) ) {
-		return $attachment[ 'url' ];
+	if ( isset( $attachment ) && !empty( $attachment ) ) {
+		return $attachment;
 	}
 
 	return $default_value;
@@ -415,9 +415,8 @@ if ( !function_exists( 'sassico_languages_list_wpml' ) ) :
 endif;
 
 function sassico_ekit_headers($format='html'){
-
-    if(class_exists('ElementsKit')){
-        $select = [];
+	// if(class_exists('ElementsKit')){
+		$select = [];
         $args = array(
 			'posts_per_page'   => -1,
 			'post_type' => 'elementskit_template',
@@ -426,16 +425,16 @@ function sassico_ekit_headers($format='html'){
         );
         $headers = get_posts($args);
         foreach($headers as $header) {
-            $select[$header->ID ] = $header->post_title;
+			$select[$header->ID ] = $header->post_title;
         }
+		// var_dump($select);
         return $select;
-
-    }
-    return [];
+    // }
+    // return [];
 }
 
-function sassico_ekit_footers($format='html'){
 
+function sassico_ekit_footers($format='html'){
     if(class_exists('ElementsKit')){
         $select = [];
         $args = array(
@@ -455,8 +454,6 @@ function sassico_ekit_footers($format='html'){
 }
 
 function sassico_ekit_headers_activate(){
-
     $header_settings = sassico_option('header_builder_enable');
     var_dump($header_settings);
-
 }
