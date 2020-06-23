@@ -55,7 +55,6 @@ class Sassico_DM_Google_Fonts {
 	}
 
 	public static function output_url() {
-		dm_print(self::generate_url());
 		if ( $url = self::generate_url() ):
 			?><link href="<?php echo esc_attr( $url ) ?>" rel="stylesheet"><?php
 		endif;

@@ -434,8 +434,6 @@ function sassico_ekit_headers($format='html'){
     return [];
 }
 
-dm_print(sassico_ekit_headers());
-
 function sassico_ekit_footers($format='html'){
 
     if(class_exists('ElementsKit')){
