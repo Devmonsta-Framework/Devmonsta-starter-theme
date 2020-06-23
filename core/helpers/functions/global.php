@@ -415,7 +415,10 @@ if ( !function_exists( 'sassico_languages_list_wpml' ) ) :
 endif;
 
 function sassico_ekit_headers($format='html'){
-	 if(class_exists('ElementsKit')){
+    
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+    if(class_exists('ElementsKit') || is_plugin_active('elementskit-lite/elementskit-lite.php')){
 		$select = [];
         $args = array(
 			'posts_per_page'   => -1,

@@ -129,11 +129,9 @@ add_action( 'admin_menu', 'sassico_remove_fw_settings', 999 );
 
 // include the init.php
 // ----------------------------------------------------------------------------------------
-
+require_once( SASSICO_CORE . '/init.php');
 require_once( SASSICO_COMPONENTS . '/editor/elementor/elementor.php');
 
 add_filter('elementskit/license/hide_banner', function(){
     return true;
 });
-
-require_once( SASSICO_CORE . '/init.php');
