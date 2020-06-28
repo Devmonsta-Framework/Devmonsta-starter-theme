@@ -86,6 +86,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'label'   => esc_html__('Header builder Enable ?', 'sassico'),
             'desc'    => esc_html__('Do you want to enable n in header ?', 'sassico'),
             'section' => 'xs_header_settings_section',
+            'attr'    => ['class' => 'xs_header_builder_switch'],
             'left-choice'  => [
                 'no' => esc_html__('No', 'sassico'),
             ],
@@ -98,10 +99,10 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'id'      => 'header_builder_select',
             'type'    => 'select',
             'value'   => '1',
-            'label' => esc_html__('Header', 'sassico'),
+            'label'   => esc_html__('Header', 'sassico'),
             'section' => 'xs_header_settings_section',
             'choices' => sassico_ekit_headers(),
-            'attr'         => ['class' => 'xs_header_builder_select'],
+            'attr'    => ['class' => 'xs_header_builder_select'],
             'conditions' => [
                 [
                     'control_name'  => 'header_builder_control_enable',
@@ -118,6 +119,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             // 'desc'    => __('html description goes here', 'sassico'),
             'type'    => 'html',
             'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href="#">'. esc_html('Edit content here.'). '</a><h2>',
+            'attr'    => ['class' => 'xs_header_builder_html'],
             'conditions' => [
                 [
                     'control_name'  => 'header_builder_control_enable',
@@ -657,9 +659,10 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'id'      => 'footer_builder_control_enable',
             'type'    => 'switcher',
             'default' => 'right-choice',
-            'label'   => esc_html__('Header builder Enable ?', 'sassico'),
-            'desc'    => esc_html__('Do you want to enable n in header ?', 'sassico'),
+            'label'   => esc_html__('Footer builder Enable ?', 'sassico'),
+            'desc'    => esc_html__('Do you want to enable n in footer ?', 'sassico'),
             'section' => 'footer_settings_section',
+            'attr'    => ['class' => 'xs_footer_builder_switch'],
             'left-choice'  => [
                 'no' => esc_html__('No', 'sassico'),
             ],
@@ -691,6 +694,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             // 'desc'    => __('html description goes here', 'sassico'),
             'type'    => 'html',
             'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href="#">'. esc_html('Edit content here.'). '</a><h2>',
+            'attr'    => ['class' => 'xs_footer_builder_html'],
             'conditions' => [
                 [
                     'control_name'  => 'footer_builder_control_enable',
