@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
   if ($("#sub-accordion-panel-xs_theme_option_panel").length > 0) {
     let arr = ["xs_header_settings_section", "footer_settings_section"];
     arr.forEach((element) => {
-      if ($("#sub-accordion-section-" + element).children('li').hasClass('xs_header_builder_switch')) {
+      if ($("#sub-accordion-section-" + element).children('li').hasClass('xs_header_builder_switch') || $("#sub-accordion-section-" + element).children('li').hasClass('xs_footer_builder_switch')) {
         function customizer_value_dynamically_update(current, type, value) {
 
           let parents = current.parents('.control-section'), // control-section
