@@ -7,8 +7,8 @@
 
 
 wp_enqueue_style( 'sassico-admin',  SASSICO_CSS . '/xs-admin.css', null,  SASSICO_VERSION );
-if ( defined( 'FW' ) ) {
-    wp_enqueue_script('sassico-customize', SASSICO_JS . '/sassico-customize.js', array('jquery'), SASSICO_VERSION, true);
+if ( defined( 'DM' ) ) {
+    wp_enqueue_script('sassico-customize', SASSICO_JS . '/xs-customize.js', array('jquery'), SASSICO_VERSION, true);
 }
 
 wp_localize_script( 'sassico-customize', 'admin_url_object',array( 'admin_url' => admin_url( 'post.php?action=elementor&post=' ) ) );

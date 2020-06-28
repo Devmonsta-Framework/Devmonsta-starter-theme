@@ -336,8 +336,14 @@ if ( !function_exists( 'sassico_advanced_font_styles' ) ) :
 	 * Get shortcode advanced Font styles
 	 *
 	 */
-	function sassico_advanced_font_styles( $style ) {
-		$style = json_decode($style, true);
+	function sassico_advanced_font_styles( $data ) {
+		$style = [];
+
+		if (is_string($data)) {
+			$style = json_decode($data, true);
+		} else {
+			$style = $data;
+		}
 
 		$font_styles = $font_weight = '';
 
@@ -426,9 +432,9 @@ function sassico_ekit_headers($format='html'){
 			'meta_key' => 'elementskit_template_type',
 			'meta_value' => 'header'
         );
-        
+
         $headers = get_posts($args);
-        
+
         foreach($headers as $header) {
 			$select[$header->ID ] = $header->post_title;
         }
@@ -438,7 +444,6 @@ function sassico_ekit_headers($format='html'){
     return [];
 }
 
-sassico_ekit_headers();
 
 function sassico_ekit_footers($format='html'){
     if(class_exists('ElementsKit')){
@@ -449,9 +454,9 @@ function sassico_ekit_footers($format='html'){
 			'meta_key' => 'elementskit_template_type',
 			'meta_value' => 'footer'
         );
-        $headers = get_posts($args);
-        foreach($headers as $header) {
-            $select[$header->ID ] = $header->post_title;
+        $footers = get_posts($args);
+        foreach($footers as $footer) {
+            $select[$footer->ID ] = $footer->post_title;
         }
         return $select;
 
