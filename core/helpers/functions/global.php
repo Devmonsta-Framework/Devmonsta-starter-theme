@@ -423,9 +423,9 @@ function sassico_ekit_headers($format='html'){
 			'meta_key' => 'elementskit_template_type',
 			'meta_value' => 'header'
         );
-        
+
         $headers = get_posts($args);
-        
+
         foreach($headers as $header) {
 			$select[$header->ID ] = $header->post_title;
         }
@@ -445,9 +445,9 @@ function sassico_ekit_footers($format='html'){
 			'meta_key' => 'elementskit_template_type',
 			'meta_value' => 'footer'
         );
-        $headers = get_posts($args);
-        foreach($headers as $header) {
-            $select[$header->ID ] = $header->post_title;
+        $footers = get_posts($args);
+        foreach($footers as $footer) {
+            $select[$footer->ID ] = $footer->post_title;
         }
         return $select;
 
@@ -458,4 +458,15 @@ function sassico_ekit_footers($format='html'){
 function sassico_ekit_headers_activate(){
     $header_settings = sassico_option('header_builder_enable');
     var_dump($header_settings);
+}
+
+
+function builder_template_id($parms1, $parms2) {
+	$builder_settings = sassico_option($parms1);
+	$builder_template_id = '';
+	$builder_enable = sassico_option($parms2);
+	if($builder_enable=='yes'){
+		$builder_template_id =   $builder_settings;
+	}
+	return $builder_template_id;
 }

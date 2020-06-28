@@ -12,3 +12,4 @@ gulpfile.babel.js
 gulpfile.js
 /vendors
 .babelrc
+/packaged
