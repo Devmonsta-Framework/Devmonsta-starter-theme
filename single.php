@@ -19,6 +19,8 @@
 			  }  ?>
             <div class="<?php echo esc_attr($column);?>">
 				<?php while ( have_posts() ) : the_post(); ?>
+      
+
 					<article id="post-<?php the_ID(); ?>" <?php post_class(["post-content","post-single"]); ?>>
 						<?php get_template_part( 'template-parts/blog/contents/content', 'single' ); ?>
               </article>
