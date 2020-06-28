@@ -10,11 +10,18 @@ class Sassico_DM_Google_Fonts {
 		'family' => array(),
 	);
 
-	public static function add_typography_v2( $value ) {
-		$json_decode = json_decode($value, true);
-		if ( in_array( isset( $json_decode[ 'family' ] ), array( true, 'true' ), true ) ) {
-			self::$data[ 'family' ][ $json_decode[ 'family' ] ][ 'variants' ][ (string) $json_decode[ 'weight' ] ] = true;
-			self::$data[ 'subset' ][ $json_decode[ 'style' ] ] = true;
+	public static function add_typography_v2( $data ) {
+		$value = [];
+		if (is_string($data)) {
+			$value = json_decode($data, true);
+		} else {
+			$value = $data;
+		}
+		if ( in_array( isset( $value[ 'family' ] ), array( true, 'true' ), true ) ) {
+			self::$data[ 'family' ][ $value[ 'family' ] ][ 'variants' ][ (string) $value[ 'weight' ] ] = true;
+		}
+		if (in_array( isset( $value[ 'style' ] ), array( true, 'true' ), true )) {
+			self::$data[ 'subset' ][ $value[ 'style' ] ] = true;
 		}
 	}
 

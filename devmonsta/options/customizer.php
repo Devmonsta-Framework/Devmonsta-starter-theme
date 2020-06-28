@@ -82,7 +82,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_control([
             'id'      => 'header_builder_control_enable',
             'type'    => 'switcher',
-            'default' => 'right-choice',
+            'default' => 'yes',
             'label'   => esc_html__('Header builder Enable ?', 'sassico'),
             'desc'    => esc_html__('Do you want to enable n in header ?', 'sassico'),
             'section' => 'xs_header_settings_section',
@@ -117,7 +117,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             // 'label'   => __('Html Input', 'sassico'),
             // 'desc'    => __('html description goes here', 'sassico'),
             'type'    => 'html',
-            'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href='. admin_url( 'post.php?action=elementor&post='.builder_template_id('header_builder_select', 'header_builder_control_enable') ). '>'. esc_html('Edit content here.'). '</a><h2>',
+            'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href="#">'. esc_html('Edit content here.'). '</a><h2>',
             'conditions' => [
                 [
                     'control_name'  => 'header_builder_control_enable',
@@ -690,7 +690,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             // 'label'   => __('Html Input', 'sassico'),
             // 'desc'    => __('html description goes here', 'sassico'),
             'type'    => 'html',
-            'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href='. admin_url( 'post.php?action=elementor&post='.builder_template_id('footer_builder_select', 'footer_builder_control_enable') ). '>'. esc_html('Edit content here.'). '</a><h2>',
+            'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href="#">'. esc_html('Edit content here.'). '</a><h2>',
             'conditions' => [
                 [
                     'control_name'  => 'footer_builder_control_enable',
@@ -823,6 +823,20 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'right-choice' => [
                 'yes' => esc_html__('Yes', 'sassico'),
             ],
+        ]);
+
+        $this->add_section([
+            'id'       => 'dm_new_controls',
+            'title'    => esc_html__('Test settings', 'sassico'),
+            'panel'    => 'xs_theme_option_panel',
+            'priority' => 10,
+        ]);
+
+        $this->add_control([
+            'id'      => 'dm_toggle',
+            'label'   => __('Toggle', 'sassico'),
+            'section' => 'dm_new_controls',
+            'type'    => 'toggle',
         ]);
     }
 }

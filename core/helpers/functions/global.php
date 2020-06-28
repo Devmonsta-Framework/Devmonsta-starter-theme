@@ -336,8 +336,14 @@ if ( !function_exists( 'sassico_advanced_font_styles' ) ) :
 	 * Get shortcode advanced Font styles
 	 *
 	 */
-	function sassico_advanced_font_styles( $style ) {
-		$style = json_decode($style, true);
+	function sassico_advanced_font_styles( $data ) {
+		$style = [];
+
+		if (is_string($data)) {
+			$style = json_decode($data, true);
+		} else {
+			$style = $data;
+		}
 
 		$font_styles = $font_weight = '';
 
@@ -458,15 +464,4 @@ function sassico_ekit_footers($format='html'){
 function sassico_ekit_headers_activate(){
     $header_settings = sassico_option('header_builder_enable');
     var_dump($header_settings);
-}
-
-
-function builder_template_id($parms1, $parms2) {
-	$builder_settings = sassico_option($parms1);
-	$builder_template_id = '';
-	$builder_enable = sassico_option($parms2);
-	if($builder_enable=='yes'){
-		$builder_template_id =   $builder_settings;
-	}
-	return $builder_template_id;
 }
