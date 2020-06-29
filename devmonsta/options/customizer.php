@@ -118,7 +118,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             // 'label'   => __('Html Input', 'sassico'),
             // 'desc'    => __('html description goes here', 'sassico'),
             'type'    => 'html',
-            'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href="#">'. esc_html('Edit content here.'). '</a><h2>',
+            'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href="#">'. esc_html('Edit content here.'). '</a><h2><h3><a style="text-transform: uppercase; color:#17a2b8" target="_blank" href="https://support.xpeedstudio.com/knowledgebase/customize-beauty-press-header-builder/">'. esc_html('How to edit header'). '</a><h3>',
             'attr'    => ['class' => 'xs_header_builder_html'],
             'conditions' => [
                 [
@@ -693,7 +693,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             // 'label'   => __('Html Input', 'sassico'),
             // 'desc'    => __('html description goes here', 'sassico'),
             'type'    => 'html',
-            'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href="#">'. esc_html('Edit content here.'). '</a><h2>',
+            'value'   => '<h2 class="header_builder_edit"><a class="xs_builder_edit_link" style="text-transform: uppercase; color:green" target="_blank" href="#">'. esc_html('Edit content here.'). '</a><h2><h3><a style="text-transform: uppercase; color:#17a2b8" target="_blank" href="https://support.xpeedstudio.com/knowledgebase/customize-beauty-press-header-builder/">'. esc_html('How to edit header'). '</a><h3>',
             'attr'    => ['class' => 'xs_footer_builder_html'],
             'conditions' => [
                 [
