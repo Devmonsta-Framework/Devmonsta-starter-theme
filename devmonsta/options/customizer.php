@@ -379,7 +379,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_control([
             'id'      => 'style_body_bg',
             'label'   => esc_html__('Body background', 'sassico'),
-            'type'    => 'color',
+            'type'    => 'color-picker',
             'section' => 'typography_settings_section',
             'default' => '#FFFFFF',
         ]);
@@ -390,7 +390,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_control([
             'id'      => 'style_primary',
             'label'      => esc_html__('Primary color', 'sassico'),
-            'type'    => 'color',
+            'type'    => 'color-picker',
             'section' => 'typography_settings_section',
             'default' => '#042ff8',
         ]);
@@ -401,7 +401,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_control([
             'id'      => 'secondary_color',
             'label'      => esc_html__('Secondary color', 'sassico'),
-            'type'    => 'color',
+            'type'    => 'color-picker',
             'section' => 'typography_settings_section',
             'default' => '#f3bc3f',
         ]);
@@ -722,7 +722,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_control([
             'id'      => 'xs_footer_text_color',
             'label'   => esc_html__('Text color', 'sassico'),
-            'type'    => 'color',
+            'type'    => 'color-picker',
             'section' => 'footer_settings_section',
             'default' => '#666',
             'desc'    => esc_html__('You can change the text color with rgba color or solid color', 'sassico'),
@@ -734,7 +734,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_control([
             'id'         => 'xs_footer_link_color',
             'label'      => esc_html__('Link Color', 'sassico'),
-            'type'       => 'color',
+            'type'       => 'color-picker',
             'section'    => 'footer_settings_section',
             'default'    => '#666',
             'desc'       => esc_html__('You can change the text color with rgba color or solid color', 'sassico'),
@@ -746,7 +746,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_control([
             'id'        => 'xs_footer_widget_title_color',
             'label'     => esc_html__('Widget Title Color', 'sassico'),
-            'type'      => 'color',
+            'type'      => 'color-picker',
             'section'   => 'footer_settings_section',
             'default'   => '#142355',
             'desc'      => esc_html__('You can change the text color with rgba color or solid color', 'sassico'),
@@ -758,7 +758,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_control([
             'id'        => 'copyright_bg_color',
             'label'     => esc_html__('Copyright Background Color', 'sassico'),
-            'type'      => 'color',
+            'type'      => 'color-picker',
             'section'   => 'footer_settings_section',
             'default'   => '#142355',
             'desc'      => esc_html__('You can change the copyright background color with rgba color or solid color', 'sassico'),
@@ -771,7 +771,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_control([
             'id'        => 'footer_copyright_color',
             'label'     => esc_html__('Copyright Text Color', 'sassico'),
-            'type'      => 'color',
+            'type'      => 'color-picker',
             'section'   => 'footer_settings_section',
             'desc'      => esc_html__('You can change the copyright background color with rgba color or solid color', 'sassico'),
         ]);
