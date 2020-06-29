@@ -26,18 +26,17 @@ class Customizer extends \Devmonsta\Libs\Customizer
          */
         $this->add_section([
             'id'       => 'general_settings_section',
-            'title'    => __('General Settings', 'sassico'),
+            'title'    => __('Optional Settings', 'sassico'),
             'panel'    => 'xs_theme_option_panel',
-            'priority' => 10,
+            'priority' => 20,
         ]);
 
         $this->add_control([
-            'id'      => 'general_main_logo',
-            'type'    => 'media',
-            'section' => 'general_settings_section',
-            'label'   => esc_html__('Main Logo', 'sassico'),
-            'desc'   => esc_html__("It's the main logo, mostly it will be shown on dark or coloreful type area.
-            ", 'sassico'),
+            'id'          => 'general_main_logo',
+            'type'        => 'media',
+            'section'     => 'general_settings_section',
+            'label'       => esc_html__('Main Logo', 'sassico'),
+            'description' => esc_html__( 'This is default logo. Our most of the menu built with elemnetsKit header builder. Go to header settings->Header builder enable->  and click "edit header content" to change the logo', 'sassico' ),
         ]);
         // $this->add_control([
         //     'id'              => 'general_social_links',
@@ -153,18 +152,18 @@ class Customizer extends \Devmonsta\Libs\Customizer
         ]);
 
         $this->add_control([
-            'id'      => 'header_contact_address_url',
-            'type'      => 'url',
-            'label'      => esc_html__('Address link', 'sassico'),
-            'desc'      => esc_html__('Navigation address link.', 'sassico'),
-            'default' => esc_url('#'),
-            'section' => 'xs_header_settings_section',
+            'id'          => 'header_contact_address_url',
+            'type'        => 'url',
+            'label'       => esc_html__('Address link', 'sassico'),
+            'description' => esc_html__('Navigation address link.', 'sassico'),
+            'default'     => esc_url('#'),
+            'section'     => 'xs_header_settings_section',
         ]);
 
         $this->add_control([
             'id'      => 'header_Contact_number',
-            'type'      => 'text',
-            'label'      => esc_html__('Contact number', 'sassico'),
+            'type'    => 'text',
+            'label'   => esc_html__('Contact number', 'sassico'),
             'default' => esc_html__('+1 212-554-1515', 'sassico'),
             'section' => 'xs_header_settings_section',
         ]);
@@ -244,12 +243,12 @@ class Customizer extends \Devmonsta\Libs\Customizer
         ]);
 
         $this->add_control([
-            'id'      => 'header_quota_text',
-            'type'      => 'text',
-            'label'      => esc_html__('Quote text', 'sassico'),
-            'desc'      => esc_html__('Navigation quote text.', 'sassico'),
-            'default' => esc_html__('Get a quote', 'sassico'),
-            'section' => 'xs_header_settings_section',
+            'id'          => 'header_quota_text',
+            'type'        => 'text',
+            'label'       => esc_html__('Quote text', 'sassico'),
+            'description' => esc_html__('Navigation quote text.', 'sassico'),
+            'default'     => esc_html__('Get a quote', 'sassico'),
+            'section'     => 'xs_header_settings_section',
             'conditions' => [
                 [
                     'control_name'  => 'header_quota_button',
@@ -260,12 +259,12 @@ class Customizer extends \Devmonsta\Libs\Customizer
         ]);
 
         $this->add_control([
-            'id'      => 'header_quota_url',
-            'type'      => 'url',
-            'label'      => esc_html__('Quote link', 'sassico'),
-            'desc'      => esc_html__('Navigation quote link.', 'sassico'),
-            'default' => esc_url('#'),
-            'section' => 'xs_header_settings_section',
+            'id'          => 'header_quota_url',
+            'type'        => 'url',
+            'label'       => esc_html__('Quote link', 'sassico'),
+            'description' => esc_html__('Navigation quote link.', 'sassico'),
+            'default'     => esc_url('#'),
+            'section'     => 'xs_header_settings_section',
             'conditions' => [
                 [
                     'control_name'  => 'header_quota_button',
@@ -331,7 +330,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'id'      => 'banner_page_image',
             'type'    => 'media',
             'section' => 'banner_settings_section',
-            'label'   => esc_html__('Media', 'sassico'),
+            'label'   => esc_html__('Banner Background', 'sassico'),
         ]);
 
         $this->add_control([
@@ -660,7 +659,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'type'    => 'switcher',
             'default' => 'right-choice',
             'label'   => esc_html__('Footer builder Enable ?', 'sassico'),
-            'desc'    => esc_html__('Do you want to enable n in footer ?', 'sassico'),
+            'desc'    => esc_html__('Do you want to enable footer builder ?', 'sassico'),
             'section' => 'footer_settings_section',
             'attr'    => ['class' => 'xs_footer_builder_switch'],
             'left-choice'  => [
@@ -710,10 +709,10 @@ class Customizer extends \Devmonsta\Libs\Customizer
         $this->add_control([
             'id'       => 'xs_footer_bg_color',
             'label'    => esc_html__('Background color', 'sassico'),
-            'type'     => 'color',
+            'type'     => 'color-picker',
             'section'  => 'footer_settings_section',
             'default'  => '#042ff8',
-            'desc'     => esc_html__('description of rgba-color-picker goes here', 'sassico'),
+            'desc'     => esc_html__('Footer background color of rgba-color-picker goes here', 'sassico'),
         ]);
 
         /**
@@ -737,7 +736,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'type'       => 'color-picker',
             'section'    => 'footer_settings_section',
             'default'    => '#666',
-            'desc'       => esc_html__('You can change the text color with rgba color or solid color', 'sassico'),
+            'desc'       => esc_html__('You can change the link color with rgba color or solid color', 'sassico'),
         ]);
 
         /**
@@ -749,7 +748,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'type'      => 'color-picker',
             'section'   => 'footer_settings_section',
             'default'   => '#142355',
-            'desc'      => esc_html__('You can change the text color with rgba color or solid color', 'sassico'),
+            'desc'      => esc_html__('You can change the widget title color with rgba color or solid color', 'sassico'),
         ]);
 
         /**
@@ -773,7 +772,7 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'label'     => esc_html__('Copyright Text Color', 'sassico'),
             'type'      => 'color-picker',
             'section'   => 'footer_settings_section',
-            'desc'      => esc_html__('You can change the copyright background color with rgba color or solid color', 'sassico'),
+            'desc'      => esc_html__('You can change the copyright tet color with rgba color or solid color', 'sassico'),
         ]);
 
         /**
@@ -783,33 +782,33 @@ class Customizer extends \Devmonsta\Libs\Customizer
             'id'          => 'footer_copyright',
             'type'        => 'textarea',
             'section'     => 'footer_settings_section',
-            'value'       =>  esc_html__('&copy; 2019, Sassico. All rights reserved', 'sassico'),
-            'label'       =>  esc_html__('Copyright text', 'sassico'),
-            'desc'        =>  esc_html__('This text will be shown at the footer of all pages.', 'sassico'),
+            'value'       => esc_html__('&copy; 2019, Sassico. All rights reserved', 'sassico'),
+            'label'       => esc_html__('Copyright text', 'sassico'),
+            'description' => esc_html__('This text will be shown at the footer of all pages.', 'sassico'),
         ]);
 
         /**
          * Footer spacing top control
          * */
         $this->add_control([
-            'id'        => 'footer_padding_top',
-            'label'     => esc_html__('Footer Padding Top', 'sassico'),
-            'desc'      => esc_html__('Use Footer Padding Top', 'sassico'),
-            'type'      => 'text',
-            'section'   => 'footer_settings_section',
-            'default'   => '100px',
+            'id'          => 'footer_padding_top',
+            'label'       => esc_html__('Footer Padding Top', 'sassico'),
+            'description' => esc_html__('Use Footer Padding Top', 'sassico'),
+            'type'        => 'text',
+            'section'     => 'footer_settings_section',
+            'default'     => '100px',
         ]);
 
         /**
          * Footer spaceing bottom control
          * */
         $this->add_control([
-            'id'        => 'footer_padding_bottom',
-            'label'	    => esc_html__( 'Footer Padding Bottom', 'sassico' ),
-            'desc'	    => esc_html__( 'Use Footer Padding Bottom', 'sassico' ),
-            'type'      => 'text',
-            'section'   => 'footer_settings_section',
-            'default'   => '100px',
+            'id'          => 'footer_padding_bottom',
+            'label'	      => esc_html__( 'Footer Padding Bottom', 'sassico' ),
+            'description' => esc_html__( 'Use Footer Padding Bottom', 'sassico' ),
+            'type'        => 'text',
+            'section'     => 'footer_settings_section',
+            'default'     => '100px',
         ]);
 
         /**
