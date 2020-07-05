@@ -424,7 +424,7 @@ function sassico_ekit_headers($format='html'){
     
     include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-    if(class_exists('ElementsKit') || is_plugin_active('elementskit-lite/elementskit-lite.php')){
+    if(class_exists('ElementsKit') || is_plugin_active('elementskit-lite/elementskit-lite.php')){ 
 		$select = [];
         $args = array(
 			'posts_per_page'   => -1,
